@@ -1,0 +1,27 @@
+var arrayfind = function (arr,item) {
+  if(arr.indexOf(item) == -1){
+    return true
+  }else{
+    return false
+  }
+}
+module.exports.arrayfind = arrayfind;
+
+var arrayIndex = function (arr,item){
+  return arr.indexOf(item);
+}
+
+module.exports.arrayIndex = arrayIndex;
+
+var splitArr = function (string){
+  return string.split(',')
+}
+
+module.exports.splitArr = splitArr;
+
+var downTime = function(endTime,nowTime){
+  // console.log(endTime,nowTime);
+  return (endTime - nowTime)/24;
+}
+
+module.exports.downTime = downTime;

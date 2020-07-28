@@ -1,0 +1,406 @@
+<!--pages/tabBarPages/home/home.wxml-->
+<wxs module="tools" src="./function.wxs" />
+
+<van-col span="24">
+	<view class="mask" wx:if='{{overlayShow}}' bindtap="onClickHide">
+			<image
+				 class="addMiniImg"
+				 src="https://oss.eggxiaoer.com/web/miniprogram/addMini.png"
+				/>
+	</view>
+
+		<van-skeleton row="2" loading="{{ loading }}">
+			<!-- 添加到我的小程序 -->
+			<view class="addMimi plr20 bcfff" wx:if='{{addMimiShow}}'>
+				<view class="addMimiText flexJsAc">
+					<view class="flexJf">
+						<text>添加到我的小程序，下次买蛋更便捷</text>
+						<van-button
+						 color="#FE4648"
+						 size="mbuttonini"
+						 custom-style='border-radius:10rpx;height:34rpx;width:63rpx;font-size:20rpx;line-height: 34rpx;'
+						 bind:click="closeAddMimiShow"
+						>
+							添加
+						</van-button>
+					</view>
+					<van-icon name="cross" size="15px" bind:click="closeAddMimiClose" />
+				</view>
+				
+			</view>
+			<!-- 定位 -->
+			
+			
+
+			<view class="location flexJsAc plr20 bcfff" style="flex-direction:row;">
+				<van-skeleton row="2" loading="{{ storeInfoShow }}" animate="true">
+					<view class="flexJA" style="display:row;justify-content: left;">
+						<van-icon
+						 name="location-o"
+						 bindtap="getLocation"
+						 color="#FE4648"
+						 size="15px"
+						/>
+						<text bindtap="chooseAD">{{locationName}}</text>
+						<van-icon
+							 name="arrow-down"
+							 size="12px"
+							 style=" padding: 5 10rpx;height: 35rpx;"
+							 
+							/>
+					</view>
+
+					<view class="addMimi bcfff" bindtap='goNearStore'>
+						<view class="addMimiText flexJsAc">
+							<view class="flexJf">
+								<text>由 {{storeInfo.name}} 提供服务</text>
+
+							</view>
+							<van-icon
+							 name="arrow-down"
+							 size="12px"
+							 style=" padding: 5 10rpx;height: 35rpx;"
+							/>
+						</view>
+						<!-- bind:click="closeAddMimiClose" -->
+						<!-- bindtap="onClickHide" -->
+					</view>
+				</van-skeleton>
+				<view style="display: flex;">
+					<view class="addMimiText flexJsAc" style="display: flex;justify-content: center;flex-direction: column;" bindtap="searchg">
+						<van-icon
+						 name="search"
+						 size="20px"
+						 style=" padding: 5 10rpx;height: 35rpx;color: #aaa;"
+						 bind:click="closeAddMimiClose"
+						/>
+						<view class="flexJf">
+							<text style="font-size: 20rpx;color: #aaa;padding:0 10px;" >搜索</text>
+						</view>
+
+					</view>
+
+					<i-switch
+					 value="{{ checked }}"
+					 size="large"
+					 bind:change="chooseTheMode"
+					 slot="footer"
+					 activeColor="#07c160"
+					 inactiveColor="#ee0a24"
+					>
+						<view slot="open">商城</view>
+						<view slot="close">到店</view>
+					</i-switch>
+				</view>
+
+				<!-- <van-switch checked="{{ checked }}" size="24px" active-color="#07c160" inactive-color="#ee0a24" bind:change="chooseWXMode" /> -->
+
+				<!-- <van-icon name="balance-list" color="#FE4648" size="30px" bind:click="goOrderList" /> -->
+			</view>
+		</van-skeleton>
+
+		<view class="cur">
+<!-- <van-count-down use-slot time="{{ time }}" bind:change="onChange">
+<text class="item">{{ timeData.years }}</text>
+<text class="item">{{ timeData.days }}</text>
+  <text class="item">{{ timeData.hours }}</text>
+  <text class="item">{{ timeData.minutes }}</text>
+  <text class="item">{{ timeData.seconds }}</text>
+</van-count-down> -->
+			<!-- 商城模式！！！！！ height=600rpx; {{checked}}-->
+			<view wx:if="true" style="height:100%;">
+
+				<van-skeleton row="2" loading="{{ loading }}">
+					<!-- 限时特惠 图片  lazy-load -->
+					<view style="width:100%,height:100%">
+					 <van-image
+					 width="100%"
+					 image-class="width:100%;"
+					 fit="widthFix"
+					 
+					 src="https://tvax1.sinaimg.cn/large/83240b7dgy1ggko23rbpkj20ku09bdmq.jpg"
+					/>
+					 </view>
+					
+				</van-skeleton>
+
+				<!-- 限时抢购 -->
+				<van-skeleton row="1" loading="{{ loading }}">
+					<view style="display: flex;justify-content:space-between;align-items:center;background:#fff; height:44px; padding: 0 10px;">
+						<view class="addMimiText flexJsAc" style="display: flex;justify-content: center;align-items:center;flex-direction: row;">
+
+							<view style=" background:#FE4648;width:8rpx;height:30rpx;" />
+							<text style="font-size: 30rpx;color: #111111;padding:0 10px;font-weight: bold;">限时抢购</text>
+							<van-count-down
+							 use-slot
+							 time="{{ time }}"
+							 bind:change="onchangetime"
+							 style="display:{{seckillGoodsList.length == 0 ? 'none':'block'}}"
+							>
+							<text class="item" style="display:{{timeData.days == 0?'none':null}}">{{ timeData.days }}</text>
+								<text style="display:{{timeData.days == 0?'none':null}}">天 </text>
+								<text class="item">{{ timeData.hours }}</text>
+								:
+								<text class="item">{{ timeData.minutes }}</text>
+								:
+								<text class="item">{{ timeData.seconds }}</text>
+							</van-count-down>
+							<text style="font-size: 25rpx;color: #111111;padding:0 0px;">{{timeText}}</text>
+
+						</view>
+						<view class="addMimiText flexJsAc" style="display:{{seckillGoodsList.length == 0 ? 'none':'flex'}};justify-content: center;align-items:center;flex-direction: row; ">
+
+							<text style="font-size: 30rpx;color: #FE4648;padding:0 0px;" bindtap='goSeckill'>更多</text>
+
+							<van-icon
+							 name="arrow"
+							 size="20px"
+							 style=" padding: 0 0rpx;height: 30rpx;color: #FE4648;"
+							 bind:click="closeAddMimiClose"
+							/>
+						</view>
+					</view>
+				</van-skeleton>
+
+				<view wx:if="{{seckillGoodsList.length == 0}}" style="text-align:center;">
+					暂无活动商品
+				</view>
+				<view wx:else>
+					<!-- 活动商品  flex-grow: 1;position:relative; -->
+					<van-skeleton row="2" loading="{{ loading }}">
+						<view style="display: block;width:100%;height:100%;overflow:hidden;overflow:hidden;">
+						<!-- 单个活动商品时 -->
+							<view style="margin: 0 0;display:{{seckillGoodsList.length == 1?'flex':'none'}}" class="goodsList" wx:for="{{seckillGoodsList}}" wx:key="index" wx:for-item="item" bindtap="toDetails" data-commodityId="{{item.commodityId}}" data-stockIdList="{{item.stockIdList}}">
+
+							<image src="{{item.imageList[0]}}">
+          </image>
+							<view class="goodsInfo"> 
+            <text class="title">{{item.commodityName}}</text>
+            <text class="describe">{{item.subtitle}}</text>
+            <view class="toolBar">
+              <view class="tagAndPrice">
+                <view class="tag"><text wx:for="{{tools.splitArr(item.labels)}}" wx:key="{{index}}">{{item}}</text></view>
+                <view class="price">￥{{item.activityType == null ? item.realPrice : item.activityPrice}}<text>￥{{item.guidePrice}}</text></view>
+              </view>
+              <view class="timeAndBuy" wx:if="{{item.activityBeginTime < nowTime && item.activityType == 1 && item.activityEndTime > nowTime}}">
+                <view class="endDown">
+                  <van-count-down time="{{tools.downTime(item.activityEndTime,nowTime)}}" /><text class="countDown">后结束</text>
+                </view>
+                <view wx:if="{{tools.arrayfind(shoppingCarStockIdList,item.stockIdList[0])}}" class="immediately" catchtap="addCar" data-goodsInfo="{{item}}">马上抢</view>
+                <view wx:else class="quantityBar">
+                  <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/reduce.png" catchtap="reduceQuantity" data-commodityId="{{item.commodityId}}" data-stockId="{{item.stockIdList[0]}}"></image>
+                  <input value="{{shoppingCarList[tools.arrayIndex(shoppingCarStockIdList,item.stockIdList[0])].quantity}}" disabled="{{true}}"></input>
+                  <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/add.png" catchtap="addQuantity" data-commodityId="{{item.commodityId}}" data-stockId="{{item.stockIdList[0]}}"></image>
+                </view>
+              </view>
+              <view wx:elif="{{item.activityBeginTime > nowTime && item.activityType == 1}}" class="startCountDown">
+                <van-count-down time="{{tools.downTime(item.activityBeginTime,nowTime)}}" class="startDown"/>
+                <text style="font-size: 20rpx">后开始</text>
+              </view>
+              <view wx:elif="{{item.activityEndTime < nowTime && item.activityType == 1}}" class="startCountDown">
+                <van-count-down time="{{(item.activityBeginTime - Date().getTime())/(24 * 60 * 60 * 1000)}}" class="startDown"/>
+                <text style="font-size: 20rpx">已结束</text>
+              </view>
+            </view>
+          </view>
+						</view>
+<!-- 多个活动商品 -->
+							<scroll-view
+							 class="scroll-view_H"
+							 scroll-x="true"
+							 style="width: 100%;height:100%; justify-content:start;display:{{seckillGoodsList.length > 1?'block':'none'}}"
+							>
+
+								<!-- background:#234234; -->
+								<view
+								 style="margin: 0 0;margin-top:0px;"
+								 class="scroll-view-item_H"
+								 wx:for="{{seckillGoodsList}}"
+								 wx:key="index"
+								 bindtap="toDetails" data-commodityId="{{item.commodityId}}" data-stockIdList="{{item.stockIdList}}"
+								>
+
+									<view class="" style="padding: 0 5px;word-break:break-all;">
+
+										<view class="goodImg">
+											<!-- image-class="width:100%;height:100%" -->
+											<van-image
+											 width="100%"
+											 height="50%"
+											 fit="widthFix"
+											 lazy-load
+											 src="{{item.imageList[0]}}"
+											/>
+										</view>
+
+										<!-- scroll-y="true"  -->
+										<view class="text-box" style="display:block;">
+											<text class="towLineText">{{item.commodityName}}\n</text>
+											<text class="towLineText greyText" style="white-space: pre-wrap;">{{item.subtitle}}\n</text>
+										</view>
+
+										<view style="display:flex;justify-content:flex-end;">
+											<view
+											 wx:if="{{(tools.arrayfind(shoppingCarStockIdList,item.stockIdList[0]))== true}}"
+											 class="immediately"
+											 catchtap="addCar"
+											 data-goodsInfo="{{item}}"
+											>马上抢</view>
+											
+										</view>
+										<view style="display:flex;justify-content:flex-end;" wx:if="{{(tools.arrayfind(shoppingCarStockIdList,item.stockIdList[0]))== false}}">
+											<view class="quantityBar">
+												<image
+												 src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/reduce.png"
+												 catchtap="reduceQuantity"
+												 data-commodityId="{{item.commodityId}}"
+												 data-stockId="{{item.stockIdList[0]}}"
+												/>
+												<input value="{{shoppingCarList[tools.arrayIndex(shoppingCarStockIdList,item.stockIdList[0])].quantity}}" disabled="{{true}}" />
+												<image
+												 src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/add.png"
+												 catchtap="addQuantity"
+												 data-commodityId="{{item.commodityId}}"
+												 data-stockId="{{item.stockIdList[0]}}"
+												/>
+											</view>
+											
+										</view>
+
+										
+
+										<!-- <van-skeleton row="2" loading="{{ loading }}" animate="true" style="display:block;"> -->
+
+										<!-- 商品价格 -->
+										<view class="twoprice " style="">
+											<view style="display:inline-block;">
+												<text class="nowPriceType">￥</text>
+												<text class="nowPriceText">{{item.activityType == null ? item.realPrice : item.activityPrice}}</text>
+											</view>
+
+											<text style="display:inline-block;" class="oldPrice">￥{{item.guidePrice}}</text>
+										</view>
+
+									</view>
+									<!-- </van-skeleton> -->
+
+								</view>
+
+							</scroll-view>
+						</view>
+					</van-skeleton>
+				</view>
+
+				<!-- 热销商品 -->
+				<van-skeleton row="1" loading="{{ loading }}">
+					<view style="display: flex;justify-content:space-between;align-items:center;background:#fff; height:44px; padding: 0 10px;margin: 5px 0 0px 0;">
+						<view class="addMimiText flexJsAc" style="display: flex;justify-content: center;align-items:center;flex-direction: row;">
+
+							<view style=" background:#FE4648;width:8rpx;height:30rpx;" />
+							<text style="font-size: 30rpx;color: #111111;padding:0 10px;font-weight: bold;">热销商品</text>
+
+						</view>
+						<view class="addMimiText flexJsAc" style="display: flex;justify-content: center;align-items:center;flex-direction: row;" bindtap="hotgocommodity">
+
+
+									<text style="font-size: 30rpx;color: #FE4648;padding:0 0px;">更多</text>
+
+									<van-icon name="arrow" size="20px" style=" padding: 0 0rpx;height: 30rpx;color: #FE4648;" bind:click="closeAddMimiClose" />
+								</view>
+					</view>
+				</van-skeleton>
+
+				<view wx:if="{{hotSellingGoodsList.length == 0}}" style="text-align:center;">
+					暂无热销商品
+				</view>
+				<view wx:else style="">
+					<!-- 商品列表  display:inline-block; -->
+					<van-skeleton row="2" loading="{{ loading }}">
+						<view style="display: flex;width:100%;height:100%;overflow:hidden;">
+							<scroll-view class="scroll-view_V" style="width: 100%;height:100%; " >
+
+								<!-- background:#234234; scroll-view-item_H  align-items:flex-end; justify-content:center; scroll-y="true" white-space:nowrap;word-break:keep-all; text-align:center  -->
+								<view
+								 style="margin: 0 0;"
+								 class=""
+								 wx:for="{{hotSellingGoodsList}}"
+								 wx:key="index"
+								 bindtap="toDetails" data-commodityId="{{item.commodityId}}" data-stockIdList="{{item.stockIdList}}"
+								>
+
+									<view style="display:flex;width:100%,height:110px;">
+
+										<view class="goodImg" style="display:inline-flex; height:110px;width:30%;align-items:center;padding:0 0 0 10px;">
+											<!-- image-class="width:100%;height:100%"  white-space: nowrap; -->
+											<van-image
+											 width="100"
+											 height="50%"
+											 fit="widthFix"
+											 src="{{item.imageList[0]}}"
+											/>
+										</view>
+
+										<!-- white-block:nowrap;word-break:keep-all; display:flex; justify-content:space-between;-->
+										<view class="" style="display:inline-flex;flex-direction:column;height:100px;justify-content:space-between;align-items:start;padding: 5px 0 0 10px;">
+
+											<view class="text-box" style="display:block;">
+												<text class="title towLineText">{{item.commodityName}}\n</text>
+												<text class="title greyText" style="white-space: pre-wrap;">{{item.subtitle}}</text>
+											</view>
+
+											<!-- 商品价格 -->
+											<view class="twoprice " style="display:block;">
+												<view style="display:inline-block;">
+													<text class="nowPriceType">￥</text>
+													<text class="nowPriceText">{{item.activityType == null ? item.realPrice : item.activityPrice}}</text>
+												</view>
+
+												<text style="display:inline-block;" class="oldPrice">￥{{item.guidePrice}}</text>
+											</view>
+										
+										</view>
+									</view>
+
+								</view>
+
+							</scroll-view>
+						</view>
+					</van-skeleton>
+				</view>
+				<view style="height:100rpx;">
+				
+				</view>
+
+				<view style="" class="bottomCar">
+					<shoppingBar
+					 shoppingCarList="{{shoppingCarList}}"
+					 shoppingCarInfo="{{shoppingCarInfo}}"
+					 bind:reduce="onReduce"
+					 bind:add="onAdd"
+					 bind:cleanShoppingCar="cleanShoppingCar"
+					/>
+				</view>
+
+			</view>
+
+			<!-- else 结束 -->
+			<!-- {{index + active}} -->
+
+		</view>
+	</van-col>
+
+<!-- 授权 -->
+<view wx:if="{{empower}}">
+	<empower bindmyevent="onEmpowerEvent" />
+</view>
+
+<!--  -->
+<van-toast id="van-toast" />
+<!--  -->
+<!-- <van-button type="primary" bind:click="onClickShow">显示遮罩层</van-button> -->
+<van-overlay show="{{ overlayShow }}" bind:click="onClickHide" />
+<van-dialog id="van-dialog" />
+<!-- <i-switch id="textSwitch" /> -->
+
+
+								

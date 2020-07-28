@@ -1,0 +1,77 @@
+/* components/empower/empower.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 260rpx;
+  z-index: 3100;
+  background-color: #fff;
+  border-radius: 15rpx;
+  transform: translateY(-20%);
+  border: none;
+}
+
+.explain {
+  height: 160rpx;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 34rpx;
+}
+
+.explain text {
+  font-weight: bold;
+}
+
+.butt {
+  height: 100rpx;
+  text-align: center;
+  width: 100%;
+  border-top: 1px RGBA(244, 247, 250, 1) solid;
+}
+
+.getUserinfoButton {
+  height: 100rpx;
+  background: #fff;
+  color: #3e79e6;
+  border: 1px #fff solid;
+  position: static;
+  font-size: 32rpx;
+  width: 90%;
+}
+.van-popup{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  width: 80%;
+  height: 260rpx;
+  z-index: 1805;
+  background-color: #fff;
+  border-radius: 15rpx;
+  /* transform: translateY(-20%); */
+  border: none; 
+}
+
+.mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 3000;
+  width: 100%;
+  height: 100%;
+}
+.flexJA{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

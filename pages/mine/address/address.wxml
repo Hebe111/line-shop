@@ -1,0 +1,27 @@
+<!--pages/my//pages/address/address.wxml-->
+<view class='editingMaterials'>
+  <view class='info'>
+    <view class='name one ' wx:for='{{list}}' bindtap="selectAddress" data-id="{{item.id}}">
+      <view class="top flexJsAc" >
+        <view class="left flex">
+          <image class="default" src="https://oss.eggxiaoer.com/web/miniprogram/default.png" wx:if="{{item.type == 1}}"></image>
+          <view class="name_phoneNum flexJsAc">
+            <text class="nameText">{{item.contactName}}</text>
+            <text class="typet">{{item.mobile}}</text>
+          </view>
+        </view>
+        <view class='right flexJA' catchtap="edit" data-id="{{item.id}}">
+          <image class="edit" src="https://oss.eggxiaoer.com/web/miniprogram/edit.png"></image>
+        </view>
+      </view>
+      <view class="bottom">
+          <text class="type">{{item.province}}{{item.city}}{{item.county}}{{item.address}}</text>
+
+      </view>
+
+    </view>
+  </view>
+  <view class="add">
+    <button class="addButton" bindtap="addAdress"> + 新增地址</button>
+  </view>
+</view>

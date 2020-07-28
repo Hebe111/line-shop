@@ -1,0 +1,14 @@
+<!--components/infoBar/infoBar.wxml-->
+<view class="infoBar" bindtap='toDetails' data-newsurl="{{newsSrc}}" data-newstype="{{newsType}}" data-newsid="{{newsid}}">
+  <view class="infoTop">
+    <view class="infoText">{{title}}</view>
+    <image class=".infoImg" mode='aspectFill' src='{{img}}'></image>
+  </view>
+  <view class="infoBottom">
+    <view>
+      <text class="name">{{name}}</text>
+      <text>{{date}}</text>
+    </view>
+    <view>热度{{readNum}}</view>
+  </view>
+</view>

@@ -1,0 +1,45 @@
+<view class=" {{isIphoneX?'tabbar_boxIiphoneX':'tabbar_box'}}" style="background-color:{{tabbar.backgroundColor}}">
+    <block wx:for="{{tabbar.list}}" wx:key="{{item.pagePath}}" >
+        <view wx:if="{{item.isSpecial}}" class="tabbar_nav" hover-class="none" style="color:{{tabbar.color}}" open-type="navigate" bindtap="change">
+            <view class='special-wrapper'>
+                <image class="tabbar_icon" src="{{item.iconPath}}"></image>
+            </view>
+            <image class='special-text-wrapper'></image>
+            <text>{{item.text}}</text>
+        </view>
+        <view wx:else class="tabbar_nav" hover-class="none" url="{{item.pagePath}}" data-path="{{item.text}}" style="color:{{item.text === tabText ? tabbar.selectedColor : tabbar.color}}" open-type="switchTab" bindtap="changeTwo">
+            <image class="tabbar_icon" src="{{item.text === tabText ? item.selectedIconPath : item.iconPath}}"></image>
+            <text>{{item.text}}</text>
+        </view>
+    </block>
+</view>
+
+<view class='model' wx:if='{{showOrHidden}}' bindtap="closeModel">
+    <view class='moAll'>
+        <view class='top'>
+            <view class='toSupply flexFcJc' catchtap="toSupply">
+                <image src="{{supplyImg}}"  mode='widthFix' ></image>
+                <text class="tabBarContent">供应</text>
+            </view>
+             <!-- <view class='toGroupBuying flexFcJc' catchtap="toGroupBuying">
+                <image src="{{groupBuyingImg}}"  mode='widthFix' ></image>
+                <text class="tabBarContent">拼团</text> 
+            </view> -->
+            <view class='toSupply purchase flexFcJc' catchtap="toPurchase">
+                <image src="{{purchaseImg}}"  mode='widthFix' ></image>
+                <text class="tabBarContent">求购</text> 
+            </view>
+        </view>
+        <view class='bottom' catchtap="closeModel">
+                <image  src="{{closweImg}}"  mode='widthFix'></image>
+            
+        </view>
+    </view>
+
+</view>
+<view class='mask' wx:if='{{showOrHidden}}' bindtap="closeModel"></view>
+
+  <!-- 授权 -->
+  <view  wx:if="{{empower}}">
+    <empower bindmyevent="onEmpowerEvent"></empower>
+  </view>

@@ -1,0 +1,28 @@
+var filterList = function(index,index1,list,info,selectList,item){
+  var preList = list;
+  if(index <= index1){
+    preList = list.map( function (i){
+      if(i != null){
+        if(i.values[info.specificationList[index].key].toString() == selectList[index].toString()){
+          return i;
+        }
+      }
+    });
+  }
+  
+  if(index  > index1){
+    var filterArr =  preList.map(function (i){
+      if(i != null){
+        return i.values[info.specificationList[index].key];
+      }
+    });
+    if(filterArr.indexOf(item) > -1){
+      return true
+    }else{
+      return false
+    }
+  }
+  return filterList(index+1,index1,preList,info,selectList,item);
+}
+
+module.exports.filterList = filterList;

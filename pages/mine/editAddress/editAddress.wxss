@@ -1,0 +1,129 @@
+/* pages/my//pages/editAddress/editAddress.wxss */
+.editBankCard{
+  background-color: #fff;
+}
+.efOne:last-child{
+  border: none;
+  min-height: 128rpx!important;
+}
+.efOne {
+  height: 87rpx;
+  /* margin: 0rpx 0 0rpx 30rpx; */
+  /* padding: 30rpx 0 0 0rpx; */
+  border-bottom: 1rpx solid rgba(231,231,231,1);
+}
+.left{
+  width: 200rpx!important;
+}
+.leftTitle{
+  font-size:30rpx; 
+  color:rgba(51,51,51,1);
+}
+.leftTitleSmall{
+  font-size:22rpx; 
+  color:rgba(51,51,51,1);
+}
+input {
+  /* width: 100rpx; */
+  margin-right: 30rpx;
+  text-align: right;
+}
+textarea{
+   margin-right: 30rpx;
+  text-align: right;
+  width: 500rpx;
+  padding: 30rpx 0;
+
+}
+.efLastOne{
+ min-height: 128rpx!important;
+  /* margin: 0rpx 0 0rpx 30rpx; */
+}
+.efLastOne .left{
+  align-self: auto;
+}
+.openingBank{
+  min-height: 69rpx;
+}
+
+.input-placeholder {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(208, 208, 208, 1);
+  /* text-align: right; */
+}
+.addBankCard{
+  width:690rpx;
+  height:80rpx;
+  background:linear-gradient(45deg,rgba(220,40,30,1) 0%,rgba(255,43,43,1) 100%);
+  box-shadow:1rpx -2rpx 12rpx 1rpx rgba(193,60,60,0.56);
+  border-radius:10rpx;
+  position: fixed;
+  bottom: 50rpx;
+  left: 30rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:bold;
+  color:rgba(255,254,254,1);
+  border: none!important;
+
+}
+
+button {  
+  line-height: 80rpx!important; 
+
+}
+
+.Unbound{
+  width:690rpx;
+  height:80rpx;
+  background:transparent; 
+  border: 1px solid #FF2B2B;
+  border-radius:10px;
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:bold;
+  color:#DC281E;
+    position: fixed;
+  bottom: 40rpx;
+  left: 30rpx;
+}
+.bandCardNum{
+  width: 400rpx;
+}
+.default{
+  background-color: #fff;
+  height: 88rpx;
+  margin: 20rpx 0 0rpx 0rpx;
+  padding: 0rpx 30rpx;
+}
+.default .left{
+  width: 200rpx;
+}
+.default .right{
+  width: 200rpx;
+  text-align: right;
+}
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+    zoom:0.6;
+    /* width:82rpx !important;
+    height:36rpx !important; */
+    /* background: #999 !important; */
+    /* border: #000 !important;   */
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    /* width:83rpx !important;
+    height: 36rpx !important; */
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    /* width: 40rpx !important;
+    height: 36rpx !important; */
+}
+.ischecked{
+  width: 80rpx;
+  height: 47rpx;
+}
+

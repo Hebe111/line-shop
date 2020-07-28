@@ -1,0 +1,20 @@
+{
+  "usingComponents": {
+    "van-image": "@vant/weapp/image/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "i-switch":"../../../components/textSwitch/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "empower":"../../../components/empower/empower",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-dialog":"@vant/weapp/dialog/index"
+  },
+  "navigationBarTitleText": "订单详情",
+  "enablePullDownRefresh": true
+
+}
+

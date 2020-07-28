@@ -1,0 +1,48 @@
+<!--pages/orderList/orderList.wxml-->
+<!--pages/orderDetails/orderDetails.wxml-->
+<van-row wx:if="{{pageShow}}" custom-class="overflow-x: hidden">
+	<van-col span="24" custom-class="overflow-x: hidden">
+		<view class="orderList plr20">
+			<view class="oederOne" wx:for="{{oederList}}" wx:key="{{index}}" bindtap="goOrderTails" data-orderNumber="{{item.orderNumber}}">
+				<van-skeleton row="2" loading="{{ loading }}">
+					<view class="oneTop flexJsAc">
+						<text class="shopName">{{item.shopName}}</text>
+						<text class="payTime">{{item.payTime}}</text>
+					</view>
+					<view class="oneBottom flexJsAc">
+						<view class="goodsList">
+							<view class="itemOne flexJf" wx:for="{{item.itemList}}" wx:for-item="itemOne">
+								<view class="itemOneLeft">
+									<text>{{itemOne.commodityName}} {{itemOne.subtitle}}</text>
+								</view>
+								<view class="itemOneLeftRight flexJA">
+									<van-icon name="cross" size="15px" />
+									<text>{{itemOne.itemQuantity}}</text>
+								</view>
+							</view>
+						</view>
+						<view class="amount">
+							<text class="priceType">￥</text>
+							<text class="amountNumber">{{item.amount}}</text>
+						</view>
+					</view>
+				</van-skeleton>
+
+
+			</view>
+		</view>
+    <view class="noMore" wx:if="{{noMore}}">
+      <text>{{noMoreText}}</text>
+    </view>
+	</van-col>
+</van-row>
+<van-row wx:else>
+	<van-col span="24">
+		<view class="pageShowFalse flexJA">
+			<text>请稍后重新刷新！</text>
+		</view>
+
+	</van-col>
+</van-row>
+<!-- toast -->
+<van-toast id="van-toast" />

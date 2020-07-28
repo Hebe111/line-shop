@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "empower": "/components/empower/empower"
+  }
+}

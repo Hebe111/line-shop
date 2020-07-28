@@ -1,0 +1,79 @@
+<!--pages/commodity//settlement/settlement.wxml-->
+<view class="settlementContainer">
+  <view class="buyerInfo {{type == 2 ? 'paddingBottom0' : ''}}">
+    <view class="selectTypeButtonGroup">
+      <view class="button {{type == 1 ? 'isActive' : ''}}" bindtap="selectType" data-type="1">配送到家</view>
+      <view class="button {{type == 2 ? 'isActive' : ''}}" bindtap="selectType" data-type="2">到店自提</view>
+    </view>
+    <view wx:if="{{type == 1}}" class="takeOverInfo ">
+      <view class="info">
+        <van-icon name="location" color="#FE4648" size="15px" />
+        <view class="baseinfo">
+          <view class="nameAndPhone">
+            <text class="name">收货人：张三</text>
+            <text class="phonenumber">13917201956</text>
+          </view>
+          <view class="address">收货地址：上海市浦东新区芳华路139号</view>
+        </view>
+      </view>
+      <van-icon name="arrow" color="#333333" size="15px" />
+    </view>
+    <view wx:else >
+      <view wx:for="{{selfRaisingInfo}}"  wx:for-key="{{index}}" wx:for-item="item" class="selfRaisingInfo {{ item.label == '提货时间'? 'noBorder' : ''}}" bindtap="{{item.label == '提货时间' ? 'showTimeSelect' : ''}}">
+        <text>{{item.label}}</text>
+        <view class="selfRaisingTime">
+          <text>{{item.content}}</text>
+          <van-icon wx:if="{{item.label == '提货时间'}}" name="arrow" color="#333333" size="15px" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{type == 2}}" class="tip">温馨提示：及时提货，品质优鲜~~</view>
+  <view class="goodsList paddingBottom0">
+    <view class="goodsListTitle">商品详情</view>
+    <view class="goodsItem {{index == goodsList.length -1 ? 'noBorder' : ''}}" wx:for="{{goodsList}}"  wx:for-key="{{index}}" wx:for-item="item">
+      <image src="{{item.image}}"></image>
+      <view class="goodsBaseInfo">
+        <text class="title">{{item.commodityName}}</text>
+        <view class="priceAndQnantity">
+          <text class="price">￥{{item.activityPrice != null ? item.activityPrice : item.realPrice}}</text>
+          <text class="quantity">×{{item.quantity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="deliveryInstructions" wx:if="{{type == 1}}">
+    <view class="instructionsTitle">配送信息</view>
+    <view class="instructionsItem" wx:for="{{deliveryInstructions}}"  wx:for-key="{{index}}" wx:for-item="item">
+      {{item}}{{}}
+    </view>
+  </view>
+  <view class="orderDetails">
+    <view class="orderTitle">订单明细</view>
+    <view wx:for="{{orderInfo}}"  wx:for-key="{{index}}" wx:for-item="item" class="orderItem">
+      <text class="label">{{item.label}}</text>
+      <text class="content">{{item.content}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="total">
+  <text>合计:</text>
+  <text style="font-size: 36rpx">{{orderInfo[1].content}}</text>
+  <view class="pay" bindtap="submitOrder">去支付</view>
+</view>
+
+<van-popup show="{{ timeShow }}" bind:close="onClose" position="bottom">
+  <view class="timeTitle">选择到店自提时间</view>
+  <van-icon name="cross" color="#333333" size="15px" class="closeTime" bindtap="hiddenTimeSelect"/>
+  <view class="slelectContent">
+    <view class="selectDate">
+      <text wx:for="{{timeKeys}}" wx:for-key="{{index}}" wx:for-item="item" bindtap="bindDateChange" data-time="{{item}}" class="{{selectTime == item ? 'active' : ''}}"> {{item}}</text>
+    </view>
+    <view class="selectTime">
+      <view wx:for="{{timeValues}}"  wx:for-key="{{index}}" wx:for-item="item" class="timeItem" bindtap="selectTime" data-time="{{item}}">{{item}}</view>
+    </view>
+  </view>
+</van-popup>
+
+

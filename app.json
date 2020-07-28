@@ -1,0 +1,90 @@
+{
+  "pages": [
+    "pages/tabBarPages/home/home",
+    "pages/tabBarPages/commodity/commodity",
+    "pages/tabBarPages/mine/mine",
+    "pages/tabBarPages/index/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "金沃优选",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#808080",
+    "selectedColor": "#DC281E",
+    "list": [
+      {
+        "pagePath": "pages/tabBarPages/home/home",
+        "text": "首页",
+        "iconPath": "components/tabbarComponent/icon/homeGray.png",
+        "selectedIconPath": "components/tabbarComponent/icon/homeRed.png"
+      },
+      {
+        "pagePath": "pages/tabBarPages/commodity/commodity",
+        "text": "分类",
+        "iconPath": "components/tabbarComponent/icon/classifyGray.png",
+        "selectedIconPath": "components/tabbarComponent/icon/classifyRed.png"
+      },
+      {
+        "pagePath": "pages/tabBarPages/mine/mine",
+        "text": "我的",
+        "iconPath": "components/tabbarComponent/icon/mineGray.png",
+        "selectedIconPath": "components/tabbarComponent/icon/mineRed.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pages/home/",
+      "pages": [
+        "nearstore/nearstore",
+        "seckill/seckill",
+        "chooseAdress/chooseAdress",
+        "searchGoods/searchGoods"
+      ]
+    },
+    {
+      "root": "pages/commodity/",
+      "pages": [
+        "goodsDetails/goodsDetails",
+        "goodsDetailsLine/goodsDetailsLine",
+        "settlement/settlement"
+      ]
+    },
+    {
+      "root": "pages/mine/",
+      "pages": [
+        "orderDetails/orderDetails",
+        "orderList/orderList",
+        "address/address",
+        "editAddress/editAddress",
+        "groupBuyNotice/groupBuyNotice",
+        "myOrderList/myOrderList",
+        "voucher/voucher"
+      ]
+    }
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.4",
+      "provider": "wx76a9a06e5b4e693e"
+    }
+  },
+  "debug": true,
+  "requiredBackgroundModes": [
+    "location"
+  ],
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

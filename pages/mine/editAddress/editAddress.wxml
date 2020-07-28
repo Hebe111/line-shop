@@ -1,0 +1,69 @@
+<!--pages/my//pages/editAddress/editAddress.wxml-->
+<view class="editBankCard">
+  <view class="flexJsAc efOne plr20">
+    <view class="left leftTitle">联系人
+    </view>
+    <view class="right flexJf">
+      <input type="text" class="bandCardNum" placeholder="请填写联系人姓名" value="{{name}}" placeholder-class="input-placeholder" bindblur="getName" />
+
+    </view>
+  </view>
+   <view class="flexJsAc efOne plr20">
+    <view class="left leftTitle">联系人电话
+    </view>
+    <view class="right flexJf">
+      <input type="number" class="bandCardNum" placeholder="请填写手机号码" value="{{phoneNum}}" placeholder-class="input-placeholder" bindblur="getPhoneNum" />
+
+    </view>
+  </view>
+  <view class="flexJsAc efOne plr20">
+    <view class="left leftTitle">所在地区
+    </view>
+    <view class="right flexJf">
+      <input type="number" class="bandCardNum" placeholder="请选择所在地区" disabled="true" value="{{formData.regionValue[0].name == '请选择'? '' : formData.regionValue[0].name}}{{formData.regionValue[1].name == '请选择' ? '': formData.regionValue[1].name}}{{formData.regionValue[2].name == '请选择' ? '': formData.regionValue[2].name}}" placeholder-class="input-placeholder" bindtap="chooseRegion" />
+
+    </view>
+  </view>
+
+  <view class="flexJsAc  efOne plr20">
+    <view class="left flexFcJf leftTitle">
+      <text>详细地址</text>
+
+    </view>
+    <view class="right flexJf" bindtap="toChoseLocation">
+      <!-- <textarea type="text" wx:if="{{textareaShow == 1}}" placeholder="{{addreeText}}" value='{{openingBank}}' placeholder-class="input-placeholder" auto-height bindinput="getOpeningBank" class="openingBank" />
+      <textarea type="text" wx:if="{{textareaShow == 0}}" placeholder="" value='{{openingBank}}' placeholder-class="input-placeholder" auto-height bindinput="getOpeningBank" class="openingBank" /> -->
+       <input type="text" class="bandCardNum" placeholder="{{addreeText}}" value="{{openingBank}}" placeholder-class="input-placeholder" bindblur="getOpeningBank" disabled="true"/>
+						<image class='goRightBlue' src='https://oss.eggxiaoer.com/web/miniprogram/goRight.png'></image>
+
+    </view>
+  </view>
+  <!--  -->
+  <view class="flexJsAc  efLastOne plr20">
+    <view class="left flexFcJf leftTitle">
+      <text>门牌号</text>
+
+    </view>
+    <view class="right flexJf" >
+      <textarea type="text" wx:if="{{textareaShow == 1}}" placeholder="{{houseNumberText}}" value='{{houseNumber}}' placeholder-class="input-placeholder" auto-height bindinput="getHouseNumber" class="openingBank" />
+      <textarea type="text" wx:if="{{textareaShow == 0}}" placeholder="" value='{{houseNumber}}' placeholder-class="input-placeholder" auto-height bindinput="getHouseNumber" class="openingBank" />
+    </view>
+  </view>
+</view>
+<view class="flexJsAc  default">
+  <view class="left flexFcJf leftTitle">
+    <text>设置默认地址</text>
+
+  </view>
+  <view class="right flexJfe">
+    <!-- <switch checked bindchange="switchChange"/> -->
+    <image class="ischecked" src="{{ischecked}}" bindtap="ischecked" data-ischecked="{{ischecked}}"></image>
+  </view>
+</view>
+<button class="addBankCard {{isFinish ? '':'opacity'}}" bindtap="addAdress" style="bottom:{{fixedHeight}}rpx">保 存</button>
+<button class="Unbound" bindtap="unbound" wx:if="{{optionsEdit == 1 && noEdit == 1}}">删除</button>
+
+
+<!-- 地区选择器 -->
+<region region-value="{{regionValue}}" show-region="{{showRegion}}" bind:myevent="emitHideRegion">
+</region>

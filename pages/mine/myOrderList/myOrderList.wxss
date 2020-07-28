@@ -1,0 +1,612 @@
+/* pages/my/pages/myOrderList/myOrderList.wxss */ 
+.toDetails{
+  font-size: 22rpx;
+  color: #666666;
+}
+.goRightBlueA {
+  width: 15rpx;
+  height: 15rpx;
+  margin-left:10rpx;
+}
+.toPay{
+  font-size: 22rpx;
+  color: #fff;
+  width:110rpx;
+  height:48rpx;
+  border-radius:10rpx;
+  /* margin-right: 20rpx; */
+}
+.cancelOrder{
+  width:140rpx;
+  height:48rpx;
+  border:1rpx solid rgba(153,153,153,1);
+  border-radius:10rpx;
+  /* margin-right: 20rpx; */
+  color: #333333;
+  font-size:22rpx;
+}
+.orderStatusText{
+  font-size: 30rpx;
+}
+
+.container {
+  background: rgba(244, 247, 250, 1);
+  position: relative;
+}
+
+.pad3 {
+  padding: 5rpx 0rpx 5rpx 10rpx;
+}
+
+.noSupply {
+  height: calc(100vh - 160rpx);
+  color: #ccc;
+}
+
+.delete {
+  color: rgba(102, 102, 102, 1);
+}
+
+.toEdit {
+  margin-left: 48rpx;
+}
+
+.redStatus {
+  font-size: 26rpx;
+  color: rgba(255, 0, 54, 1);
+}
+
+.box {
+  font-size: 28rpx;
+  height: 88rpx;
+  border-right: none;
+  color: #666;
+}
+
+.basket {
+  border: 1rpx solid rgba(153, 153, 153, 1);
+  border-radius: 0px 6rpx 6rpx 0px;
+  width: 180rpx;
+  height: 48rpx;
+  border-left: none;
+  color: rgba(51, 51, 51, 1);
+}
+
+.center {
+  border: 1rpx solid rgba(153, 153, 153, 1);
+  width: 124rpx;
+  height: 48rpx;
+  border-left: none;
+  border-right: none;
+  color: rgba(51, 51, 51, 1);
+}
+
+.isbox {
+  border-bottom: 1rpx solid #dc281e;
+  font-size: 28rpx;
+  height: 87rpx;
+  color: #dc281e;
+}
+
+.allTitleOne {
+  width: 100%;
+}
+
+.allTitleOne text {
+  width: 80%;
+}
+
+.info {
+  z-index: 99;
+  margin: 35rpx 0 0rpx 0;
+}
+
+.whiteLine {
+  width: 100%;
+  height: 20rpx;
+  background-color: rgba(244, 247, 250, 1);
+}
+
+.infoAll {
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: -6rpx 8rpx 38rpx 2rpx rgba(166, 169, 171, 0.32);
+  border-radius: 20rpx;
+}
+
+.infoAll .leftAvt {
+  flex: 1;
+}
+
+.infoAll .leftAvt image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  box-shadow: -6px 8px 38px 2px rgba(166, 169, 171, 0.32);
+}
+
+.infoAll .rightOther {
+  flex: 5;
+  padding: 0 0 0 30rpx;
+}
+
+.roLeft view {
+  margin: 20rpx 0;
+}
+
+.roLeft .nikeName {
+  font-size: 30rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.roLeft text {
+  font-size: 24rpx;
+  color: rgba(102, 102, 102, 1);
+  margin-left: 10rpx;
+}
+
+.iconOne {
+  width: 24rpx;
+  height: 22rpx;
+}
+
+.roRight {
+  align-self: baseline;
+  text-align: right;
+}
+
+.edit {
+  margin: 30rpx 0;
+}
+
+.edit image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+}
+
+.edit text {
+  font-size: 26rpx;
+  color: rgba(102, 102, 102, 1);
+}
+
+.sharpersonalShareeB {
+  width: 145rpx !important;
+}
+
+
+.topBacz {
+  width: 101%;
+  height: 152rpx;
+  /* position: absolute; */
+  top: 0;
+  position: fixed;
+  z-index: 10;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 260rpx;
+  /* height: 20%; *//* color: #fff; */
+  z-index: 1005;
+  background-color: #fff;
+  border-radius: 15rpx;
+  transform: translateY(-20%);
+  border: none;
+}
+
+.explain {
+  height: 160rpx;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 34rpx;
+}
+
+.explain text {
+  font-weight: bold;
+}
+
+.butt {
+  height: 100rpx;
+  text-align: center;
+  width: 100%;
+  border-top: 1px RGBA(244, 247, 250, 1) solid;
+}
+
+.getUserinfoButton {
+  height: 100rpx;
+  background: #fff;
+  color: #3e79e6;
+  border: 1px #fff solid;
+  position: static;
+  font-size: 32rpx;
+  width: 90%;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.body-view {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  /* position: fixed; */
+  height: 100%;
+  width: 100%;
+}
+
+.all {
+  height: 100%;
+  width: 100%;
+}
+
+.body_title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  position: sticky;
+  top: 0rpx;
+  box-shadow: 1rpx 5rpx 33rpx 2rpx rgba(176, 179, 182, 0.33);
+}
+
+.flex {
+  display: flex;
+}
+
+.flexJCS {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleText {
+  justify-content: space-between;
+  align-items: center;
+  margin: 0rpx 0 0rpx 0;
+  height: 90rpx;
+}
+
+.titleText .selectedText {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: bolder;
+  color: rgba(51, 51, 51, 1);
+}
+
+.CustomerServiceTel {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(214, 68, 99, 1);
+}
+
+.search {
+  height: 88rpx;
+  align-items: center;
+  background: rgba(255, 255, 255, 1);
+}
+
+.allTitle {
+  width: 100%;
+}
+
+.search .searchInput {
+  width: 450rpx;
+  height: 60rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 1rpx 5rpx 33rpx 2rpx rgba(176, 179, 182, 0.33);
+  border-radius: 8rpx;
+}
+
+.input-placeholder {
+  font-size: 24rpx;
+  color: #777;
+  opacity: 0.5;
+  margin-left: 20rpx;
+}
+
+.search .option {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(51, 51, 51, 1);
+}
+
+.optionText {
+  width: 53rpx;
+  height: 46rpx;
+  background: linear-gradient(45deg, rgba(75, 67, 235, 1) 0%, rgba(62, 121, 230, 1) 100%);
+  box-shadow: 1rpx 5rpx 7rpx 1rpx rgba(176, 179, 182, 0.66);
+  border-radius: 8px;
+  padding: 10rpx 23rpx;
+}
+
+.tabtitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.titleSel {
+  display: flex;
+  align-items: center;
+}
+
+.headerLineSel {
+  width: 101rpx;
+  height: 48rpx;
+  background: linear-gradient(45deg, rgba(75, 67, 235, 1) 0%, rgba(62, 121, 230, 1) 100%);
+  box-shadow: 1rpx 5rpx 7rpx 1rpx rgba(176, 179, 182, 0.36);
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  line-height: 48rpx;
+}
+
+.headerLineUnsel {
+  width: 84rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  border-radius: 8px;
+  color: #333;
+}
+
+.swiper {
+  width: 100%;
+  height: calc(100vh - 108rpx);
+}
+
+.swiper_item {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  z-index: 99;
+}
+
+.y {
+  z-index: 99;
+}
+
+/*隐藏滚动条*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.scroll-view {
+  width: 100%;
+  overflow-y: scroll;
+  /* height: 93%; *//*动态高度*//* background: rgba(244, 247, 250, 1); */
+}
+
+.recordItem {
+  margin: 20rpx 0;
+  padding: 0 20rpx 20rpx 20rpx;
+  background: rgba(255, 255, 255, 1);
+  background: rgba(255,255,255,1);
+box-shadow: -6rpx 8rpx 38rpx 2rpx rgba(166,169,171,0.32);
+border-radius: 20rpx;
+
+  /* box-shadow: 1rpx 5rpx 25rpx 2rpx rgba(176, 179, 182, 0.25); */
+  /* box-shadow: 5rpx 10rpx 15rpx 5rpx rgba(176, 179, 182, 0.33); *//* border-radius: 10rpx; */
+}
+
+.forPull {
+  z-index: 99;
+  overflow-y: scroll;
+  position: static;
+  padding: 0 20rpx;
+
+}
+
+.title_num {
+  margin-bottom: 20rpx;
+  height: 56rpx;
+  border-bottom: 1rpx solid #EBEEF6;
+  padding: 20rpx 0 26rpx 0;
+
+}
+
+.title_num .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.title_num .title .gy_cg {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 19rpx;
+  width: 69rpx;
+  height: 37rpx;
+  text-align: center;
+  line-height: 37rpx;
+}
+
+.supplyText {
+  background: rgba(62, 119, 230, 1);
+}
+
+.purchaseText {
+  background: rgba(75, 67, 235, 1);
+}
+
+.typeName {
+  font-weight: bolder;
+  font-size: 32rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  max-width: 300rpx;
+}
+
+.title_num .title  .number {
+  font-weight: bolder;
+  margin: 0 10rpx;
+  font-size: 32rpx;
+}
+
+.title_num .num {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(252, 19, 68, 1);
+  align-self: flex-end;
+}
+
+.num {
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(252, 19, 68, 1);
+  align-self: flex-end;
+}
+
+.address {
+  padding-bottom: 17rpx;
+}
+
+.address .addressText {
+  color: #666;
+}
+
+.address .time {
+  font-size: 20rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+
+.to_name .img {
+  width: 69rpx;
+  justify-content: center;
+}
+
+.to_name .img image {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.to_name  {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #666;
+}
+
+.tel {
+  font-size: 26rpx;
+}
+
+.goRIcon {
+  width: 12rpx;
+  height: 20rpx;
+  margin-left: 5rpx;
+}
+
+.avt {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+  margin-right: 20rpx;
+}
+.avt2 {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.avatar{
+  position: relative;
+}
+.avatar text{
+  width:30rpx;
+  height:30rpx;
+  background:rgba(220,40,30,1);
+  border-radius:50%; 
+  font-size:18rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  position: absolute;
+  top: -5rpx;
+  right: 5rpx;
+  text-align: center;
+  line-height: 30rpx;
+}
+.goodsImg{
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.goodsImg2{
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  opacity: 0.4;
+}
+.goodsImgs{
+  width: 100%;
+}
+.amount2{
+  font-size: 22rpx;
+  color: #333333;
+  margin: 20rpx 0;
+}
+.amount2 .amountText{
+  font-size: 30rpx;
+  color: #333333;
+}
+.pickedUp{
+  background:rgba(254,70,72,1);
+  border-radius:6rpx;
+  font-size:18rpx;
+  color:rgba(255,255,255,1);
+  padding: 0rpx 5rpx;
+  margin-left: 15rpx;
+}
+
+.toTel{
+  padding-top: 10rpx;
+}

@@ -1,0 +1,90 @@
+/* pages/mine//voucher/voucher.wxss */
+page{
+  background: #F4F6FC;
+}
+.container{
+  background-color: white;
+  padding-bottom: 150rpx;
+  width: calc(100% - 40rpx);
+  margin: 20rpx auto;
+}
+.storeInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40rpx 40rpx  40rpx;
+}
+
+.storeName{
+  color: #333333;
+  font-size: 34rpx;
+}
+
+.address,.time{
+  color: #333333;
+  font-size: 26rpx;
+  margin-top: 6rpx;
+}
+
+.line{
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.line .left{
+  width: 20rpx;
+  height: 40rpx;
+  background-color: #F4F6FC;
+  border-radius: 0 40rpx 40rpx 0;
+}
+
+.line .mid{
+  width: calc(100% - 50rpx);
+  height: 2rpx;
+  border-top: 2rpx dashed #999999;
+}
+
+.line .right{
+  width: 20rpx;
+  height: 40rpx;
+  background-color: #F4F6FC;
+  border-radius: 40rpx 0 0 40rpx;
+}
+
+.QRCode{
+  padding: 20rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  text-align: center;
+}
+
+.label{
+  font-size: 34rpx;
+}
+
+.number{
+  font-size: 40rpx;
+  margin-top: 20rpx;
+  letter-spacing: 6rpx;
+}
+
+.QRCode image{
+  width: 350rpx;
+  height: 350rpx;
+  margin: 70rpx 0;
+}
+
+.tip{
+  font-size: 28rpx;
+}
+.canvas{
+  width: 300rpx!important;
+  height: 300rpx!important;
+  margin: 10rpx;
+}

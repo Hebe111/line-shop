@@ -1,0 +1,19 @@
+/* components/nearstore/nearstore.wxss */
+
+.goodsList{
+  /* width: 100%; */
+  /* padding: 20rpx 0rpx; */
+  border-bottom: 1rpx solid #EBEDF5;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+}
+.bigtext {
+  font-size: 35rpx;
+}
+.normal{
+  font-size: 25rpx;
+}
+.greytext{
+  color: darkgrey;
+}

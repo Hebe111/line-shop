@@ -1,0 +1,58 @@
+<!-- components/shoppingCar.wxml -->
+<wxs module="tools" src="../../pages/tabBarPages/commodity/function.wxs" />
+<view class="shoppingMask"  wx:if="{{showModalStatus}}" bindtap="hideModal">
+</view>
+<view class="maskContent" animation='{{animationData}}' wx:if="{{showModalStatus}}">
+  <view class="tool">
+    <text class="tag">已选商品</text>
+    <view class="clear" bindtap="cleanShoppingCar">
+      <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/clean.png"></image>
+      <text>清空</text>
+    </view>
+  </view>
+  <view class="shoppingList">
+    <view wx:for="{{shoppingCarList}}" wx:key="{{index}}" class="goodsList shoppingCarList">
+      <image src="{{item.image}}">
+      </image>
+      <view class="goodsInfo"> 
+        <text class="title">{{item.commodityName}}</text>
+        <text class="describe">{{item.subtitle}}</text>
+        <view class="toolBar">
+          <view class="tagAndPrice">
+            <view class="tag"><text wx:for="{{tools.splitArr(item.labels)}}" wx:key="{{index}}">{{item}}</text></view>
+            <view class="price">￥{{item.activityPrice != null ? item.activityPrice : item.realPrice}}<text>￥{{item.guidePrice}}</text></view>
+          </view>
+          <view class="timeAndBuy">
+            <view class="quantityBar">
+              <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/reduce.png" bindtap="reduce" data-id="{{item.commodityId}}" data-stockId="{{item.stockId}}"></image>
+              <input value="{{item.quantity}}" disabled="{{true}}"></input>
+              <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/add.png" bindtap="add" data-id="{{item.commodityId}}" data-stockId="{{item.stockId}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="shoppingBar">
+  <view class="shoppingBarLeft" wx:if="{{shoppingCarList.length == 0}}">
+    <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/shoppingCar.png">
+    </image>
+    <view class="shoppingBarText">
+      <text class="noGoods">未选购商品</text>
+      <text >仅支持到店自取</text>
+    </view>
+  </view>
+  <view class="shoppingBarLeft" wx:else bindtap="showModel">
+    <view class="hasGoods">
+      <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/shoppingCarRed.png"></image>
+      <view class="count">{{shoppingCarInfo.quantity}}</view>
+    </view>
+    <view class="shoppingBarText">
+      <view class="price">￥{{shoppingCarInfo.totalPrice}} <text>￥{{shoppingCarInfo.totalGuidePrice}}</text></view>
+      <text class="discount">优惠￥{{shoppingCarInfo.totalDiscountPrice}}</text>
+    </view>
+  </view>
+  <view class="button {{shoppingCarList.length != 0 ? 'settlement' : ''}}" bindtap="goSettlement">去结算</view>
+</view>
+

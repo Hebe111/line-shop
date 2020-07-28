@@ -1,0 +1,185 @@
+/* pages/index/index.wxss */
+page{
+  background:rgba(236,240,244,1);
+}
+img{
+  width: 100%;
+}
+.goodImg{
+  font-size: 0;
+  border-radius: 15rpx 15rpx 0 0;
+  margin-bottom: 10rpx;
+}
+.addMimi{ 
+  position: relative;
+}
+.addMimi .addMiniImg{
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  width: 428rpx;
+  height: 521rpx;
+  z-index: 20000;
+}
+.addMimi .addMimiText{
+  background:rgba(255,220,220,1);
+  border-radius:10rpx;
+  height: 48rpx; 
+  padding: 0 20rpx;
+  font-size: 22rpx;
+
+}
+.addMimi .addMimiText text{
+  margin-right: 20rpx;
+}
+.addMimi .addMimiText .addButton{
+  border-radius:10rpx;
+  line-height: 34rpx;
+  width: 67rpx;
+}
+.location{  
+  height: 94rpx; 
+}
+/*  */
+.goodsFather{ 
+  margin-bottom: 128rpx;
+}
+.goodsFather .goodsList {
+  position: relative;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  padding-top: 20rpx;
+}
+.goodsFather .goodsList::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+.listLeft{
+  float: left;
+  width: 50%;
+}
+.listRight{
+  float: left;
+  width: 50%;
+}
+.goodsFather .goodsList .good_one{
+  /* width: 50%;  */
+  /* margin-top: 15rpx; */
+  /* text-align: center;
+  border-radius: 15rpx; */
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+}
+.goodsFather .goodsList .good_one .goodDetails{
+  width: calc(100% - 18rpx); 
+  background-color: #fff; 
+  padding-bottom: 18rpx;
+  margin-bottom: 15rpx;
+
+}
+.goodsFather .goodsList .good_one .goodDetails .title_price  {
+  text-align: left;
+}
+.goodsFather .goodsList .good_one .goodDetails .title_price .discount{
+  color: #FE4648;
+  font-size: 24rpx;
+  background:rgba(255,238,238,1);
+  border-radius:19rpx;
+  height: 38rpx;
+  min-width: 100rpx;
+}
+.goodsFather .goodsList .good_one .goodDetails .title_price .title{
+  color:#000000;
+  font-size: 30rpx; 
+  font-weight: bold;
+}
+.goodsFather .goodsList .good_one .goodDetails .price_number {
+  margin-top: 10rpx;
+  height: 54rpx;
+}
+
+.goodsFather .goodsList .good_one .goodDetails .price_number .twoprice{
+  height: 54rpx;
+}
+.goodsFather .goodsList .good_one .goodDetails .price_number .twoprice .nowPrice{
+  color: #FE4648;
+  font-size: 30rpx;
+}
+.goodsFather .goodsList .good_one .goodDetails .price_number .twoprice .nowPrice .nowPriceType{
+  color: #FE4648;
+  font-size: 24rpx;
+}
+.goodsFather .goodsList .good_one .goodDetails .price_number .oldPrice {
+  color: #999999;
+  font-size: 24rpx;
+  text-decoration:line-through;
+}
+
+/*  */
+.buyNumber{
+  height: 54rpx;
+
+}
+.quantityViewStyle { 
+  height: 34rpx; 
+}
+.minusStyle {
+  /* height:34rpx; */
+  width:54rpx; 
+  
+}
+.plusStyle {
+  /* height:54rpx; */
+  width:54rpx; 
+}
+.inputViewStyle {
+  height:54rpx;
+  width:35rpx; 
+  text-align:center;
+
+}
+.inputStyle {
+  /* width:28rpx; */
+  /* height:34rpx; */
+  /* line-height: 34rpx; */
+  /* text-align:center;
+  font-size:27rpx;  */
+}
+.fotter{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 2000;
+}
+.fotter .fotterSon{
+  /* height: 100%; */
+  height: 108rpx;
+  background-color: #fff;
+  padding: 0 20rpx;
+}
+.fotter .totalPrice .total{
+  color: #999999;
+  font-size: 30rpx;
+}
+.fotter .totalPrice .priceText{
+  color: #FE4648;
+  font-size: 53rpx;
+}
+.fotter .totalPrice .priceText .priceType{
+  color: #FE4648;
+  font-size: 42rpx;
+}
+
+/* 授权失败 */
+.pageShowFalse{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+.pageShowFalse text{
+  margin-bottom: 15rpx;
+}

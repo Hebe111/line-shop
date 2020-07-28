@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "shoppingBar": "/components/shoppingCar/shoppingCar",
+    "van-count-down": "@vant/weapp/count-down/index"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "分类"
+}

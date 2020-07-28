@@ -1,0 +1,77 @@
+<!--pages/seckill/seckill.wxml-->
+<!--pages/tabBarPages/home/home.wxml  background-image: url(../../image/skillbg.png) position:relative -->
+<wxs module="tools" src="./function.wxs" />
+
+<view style="display: flex;flex-direction: column;align-items: center;justify-content:space-between;box-sizing: border-box;">
+	<view style="display: block;width:100%;height:100%;flex-direction: column;justify-content:space-between;overflow:hidden;">
+
+	</view>
+	<view class="header-container">
+		<image class='header-bg' src='/image/skillbg.png'></image>
+		<!-- asdfasdf1111   这里有堆数字 对页面影响巨大 -->
+		<!-- <view class="container">asdfasdf222</view> -->
+
+		<view class="container">
+			<!-- 商品列表  display:inline-block; -->
+			<van-skeleton row="2" loading="{{ loading }}">
+				<view style="display: flex;overflow:hidden;background-color: #fff;border-top-left-radius: 5px;border-top-right-radius: 5px;margin: 0 10px;">
+					<scroll-view class="scroll-view_V" style="width: 100%;height:100%;margin-bottom:100rpx;" bindscroll="scroll" wx:if="{{seckillGoodsList.length > 0}}">
+
+						<!-- background:#234234; scroll-view-item_H  align-items:flex-end; justify-content:center; scroll-y="true" white-space:nowrap;word-break:keep-all; text-align:center  -->
+						<view style="margin: 0 10px;" class="goodsList" wx:for="{{seckillGoodsList}}" wx:key="index" wx:for-item="item" bindtap="toDetails" data-commodityId="{{item.commodityId}}" data-stockIdList="{{item.stockIdList}}">
+
+							<image src="{{item.imageList[0]}}">
+          </image>
+							<view class="goodsInfo"> 
+            <text class="title">{{item.commodityName}}</text>
+            <text class="describe">{{item.subtitle}}</text>
+            <view class="toolBar">
+              <view class="tagAndPrice">
+                <view class="tag"><text wx:for="{{tools.splitArr(item.labels)}}" wx:key="{{index}}">{{item}}</text></view>
+                <view class="price">￥{{item.activityType == null ? item.realPrice : item.activityPrice}}<text>￥{{item.guidePrice}}</text></view>
+              </view>
+              <view class="timeAndBuy" wx:if="{{item.activityBeginTime < nowTime && item.activityType == 1 && item.activityEndTime > nowTime}}">
+                <view class="endDown">
+                <!-- tools.downTime(item.activityEndTime,nowTime) -->
+                  <van-count-down time="{{tools.downTime(item.activityEndTime,nowTime)}}" /><text class="countDown">后结束</text>
+                </view>
+                <view wx:if="{{tools.arrayfind(shoppingCarStockIdList,item.stockIdList[0])}}" class="immediately" catchtap="addCar" data-goodsInfo="{{item}}">马上抢</view>
+                <view wx:else class="quantityBar">
+                  <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/reduce.png" catchtap="reduceQuantity" data-commodityId="{{item.commodityId}}" data-stockId="{{item.stockIdList[0]}}"></image>
+                  <input value="{{shoppingCarList[tools.arrayIndex(shoppingCarStockIdList,item.stockIdList[0])].quantity}}" disabled="{{true}}"></input>
+                  <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/add.png" catchtap="addQuantity" data-commodityId="{{item.commodityId}}" data-stockId="{{item.stockIdList[0]}}"></image>
+                </view>
+              </view>
+              <view wx:elif="{{item.activityBeginTime > nowTime && item.activityType == 1}}" class="startCountDown">
+                <van-count-down time="{{tools.downTime(item.activityBeginTime,nowTime)}}" class="startDown"/>
+                <text style="font-size: 20rpx">后开始</text>
+              </view>
+              <view wx:elif="{{item.activityEndTime < nowTime && item.activityType == 1}}" class="startCountDown">
+                <van-count-down time="{{(item.activityBeginTime - Date().getTime())/(24 * 60 * 60 * 1000)}}" class="startDown"/>
+                <text style="font-size: 20rpx">已结束</text>
+              </view>
+            </view>
+          </view>
+						</view>
+
+					</scroll-view>
+          <view wx:else class="noGoods"> 暂无商品</view>
+
+				</view>
+			</van-skeleton>
+		</view>
+
+
+
+
+		<!-- <view style="z-index:231;"> asdfasdfefasdf</view> -->
+	</view>
+
+	<view style="" class="bottomCar">
+		<!-- <shoppingBar shoppingCarList="{{shoppingCarList}}" bind:reduce="onReduce" bind:add="onAdd" bind:cleanShoppingCar="cleanShoppingCar"></shoppingBar> -->
+    <shoppingBar shoppingCarList="{{shoppingCarList}}" shoppingCarInfo="{{shoppingCarInfo}}" bind:reduce="onReduce" bind:add="onAdd" bind:cleanShoppingCar="cleanShoppingCar"></shoppingBar>
+	</view>
+
+</view>
+
+<van-toast id="van-toast" />

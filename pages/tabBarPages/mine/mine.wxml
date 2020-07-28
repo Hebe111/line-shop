@@ -1,0 +1,58 @@
+<view class="container">
+	<view class='mine'>
+		<view class='avt flexJsAc plr30' bindtap='toPersonalHomepage'>
+			<view class='avt_name flexJf' wx:if="{{Authorization}}">
+				<image src='{{userInfo.avatar}}'></image>
+				<text class='nikeName'>{{userInfo.name}}</text>
+			</view>
+			<view class='avt_name flexJf' wx:if="{{!Authorization}}">
+				<image src='https://oss.eggxiaoer.com/web/miniprogram/avatar.png'></image>
+				<text class='nikeName'>点击登录</text>
+			</view>
+
+		</view>
+		<view class="orderBody flexJA">
+			<view class="buy one flexFcJc" bindtap="goOrderList" data-type="0" data-index="0">
+				<view class="oneTop flexJsAc">
+					<text class="otText">我的订单</text>
+					<view class="lookAll flexJf">
+						<text>查看全部</text>
+						<image class='goRightBlue' src='https://oss.eggxiaoer.com/web/miniprogram/goRight.png'></image>
+					</view>
+				</view>
+				<view class="oneBottom flexJsaAc">
+					<view wx:for="{{buyList}}" class="iconOne flexFcJc" catchtap="goOrderOne" data-type="0" data-index="{{item.index}}">
+						<view class=" iconNum_images flexFcAr">
+							<!-- <text class="{{item.num > 0 ?'num': 'numO'}} flexJA">{{item.num}}</text> -->
+							<text class="num flexJA">{{item.num}}</text>
+							<image class="obIcon" src="{{item.src}}"></image>
+						</view>
+						<text class="obText">{{item.text}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+    	<view class="orderBody mt20 flexJA">
+			<view class="buy one flexFcJc" >
+				<view class="oneTop2 flexJsAc">
+					<text class="otText">我的服务</text>
+					 
+				</view>
+				<view class="oneBottom flexJf">
+					<view wx:for="{{myServiceList}}" class="iconOne2 flexFcJc" catchtap="goService" data-type="1" data-index="{{item.index}}">
+						<view class=" iconNum_images flexFcAr">
+							<image class="obIcon2" src="{{item.src}}"></image>
+						</view>
+						<text class="obText">{{item.text}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 授权 -->
+<view wx:if="{{empower}}">
+	<empower bindmyevent="onEmpowerEvent"></empower>
+</view>
+
+<van-toast id="van-toast" />

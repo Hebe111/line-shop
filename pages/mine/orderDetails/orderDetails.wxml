@@ -1,0 +1,125 @@
+<!--pages/orderDetails/orderDetails.wxml-->
+<view class='orderDetails'>
+	<view class='orderStatusTop '>
+
+		<text class="orderStatusText">{{details.orderStatus == 40 ? '待支付' : details.orderStatus == 45 ? '待分享' : details.orderStatus == 50 ? '待发货' :details.orderStatus == 60  && details.pickedUp == 10? '待提货' : details.orderStatus == 60  && details.pickedUp == 20? '待收货' :details.orderStatus == 90 ? '已完成' :details.orderStatus == 100 ? '已取消' : ''}}</text><text wx:if="{{details.orderStatus == 40}}">(距离订单支付还剩<text class="red">{{countDown}}</text>)</text>
+	</view>
+	<!-- 提货信息 -->
+	<view class="pickUpGoods flexJA plr20">
+		<view class="pickUpGoods10 plr20 flexFcJSa" wx:if="{{details.pickedUp == 10}}">
+			<view class="pickOne flexJsAc">
+				<text>提货人</text>
+				<text>{{details.buyerContactName}}</text>
+			</view>
+			<view class="pickOne flexJsAc">
+				<text>提货地址</text>
+				<text>{{details.buyerAddress}}</text>
+			</view>
+			<view class="pickOne flexJsAc">
+				<text>提货时间</text>
+				<text>{{details.appointment != null ? details.appointment :'暂无'}}</text>
+			</view>
+		</view>
+		<view class="pickUpGoods20" wx:if="{{details.pickedUp == 20}}">
+			<view class="choseOne flexJf">
+				<view class="addressLeft">
+					<image class="location" src="https://oss.eggxiaoer.com/web/miniprogram/location.png"></image>
+				</view>
+				<view class="adressInfo flexFcAc2">
+					<view class="adressInfoTop flexJsAc">
+						<text class="adressInfoTopName">收货人：{{details.buyerContactName}}</text>
+						<text>{{details.buyerContactPhone}}</text>
+					</view>
+					<view class="adressInfoBottom">{{details.buyerAddress}}</view>
+
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 商品详情  -->
+	<view class="essentialLnformation flexJA plr20">
+		<view class="goodsDetails plr20">
+			<view class="detailsTitle">商品详情</view>
+			<view class="goodsDetailsList">
+				<view class="goodsDetailsListOne flexJsAc" wx:for="{{details.items}}">
+					<view class="goodsDetailsListOneLeft">
+						<image src="{{item.goodsImg}}"></image>
+					</view>
+					<view class="goodsDetailsListOneRight flexFcAc">
+						<view class="goodsDetailsListOneRightTop flexJf">
+							<text>{{item.goodsName}}</text>
+							<text wx:if="{{item.activityName != null}}" class="activityName">{{item.activityName}}</text>
+						</view>
+						<view class="goodsDetailsListOneRightBottom flexJsAc">
+							<text class="red">¥{{item.price}}</text>
+							<text>x{{item.itemQuantity}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 订单明细 -->
+	<view class="essentialLnformation flexJA plr20">
+		<view class="oederDetails box_style plr20">
+			<view class="orederInfoOne flexJsAc">
+				<text>商品数量</text>
+				<text>{{goodsNumber}}</text>
+			</view>
+			<view class="orederInfoOne flexJsAc">
+				<text>订单金额</text>
+				<text>{{details.itemTotalMoney}}</text>
+			</view>
+			<!-- <view class="orederInfoOne flexJsAc">
+				<text>配送费</text>
+				<text>{{details.distributionFee}}</text> 
+			</view> -->
+		</view>
+	</view>
+	<!-- 合计 -->
+	<view class="essentialLnformation flexJA plr20">
+		<view class="amount box_style plr20 flexJsAc" wx:if="{{details.pickedUp == 10 && details.orderStatus == 60}}" bindtap="toQc">
+			<text>自提订单提货凭证</text>
+			<image class='goRightBlue' src='https://oss.eggxiaoer.com/web/miniprogram/goRight.png'></image>
+		</view>
+		<view class="amount box_style plr20 flexJsAc" wx:if="{{details.pickedUp == 20}}" bindtap="">
+			<text>合计：</text>
+			<text>¥<text class="amountText">{{details.amount}}</text></text>
+		</view>
+		<view></view>
+	</view>
+
+
+
+
+
+
+
+
+	<view class='phone flexAcJc'>
+		<van-button open-type="share" wx:if="{{details.orderStatus == 45}}" custom-style="width: 186rpx;height: 80rpx;border-radius: 40rpx;font-size: 28rpx;margin: 30rpx 30rpx;" color="#FE4648" round loading="{{shareLoading}}" type="info" loading-text="" block>去分享</van-button>
+
+		<van-button bind:click="receivingGoods" wx:if="{{details.orderStatus == 60 && details.pickedUp == 20}}" custom-style="width: 186rpx;height: 80rpx;border-radius: 40rpx;font-size: 28rpx;margin: 30rpx 30rpx;" color="#FE4648" round loading="{{receiveLoading}}" type="info" loading-text="" block>确认收货</van-button>
+
+		<view class='cancelOrderJO   flexJA' bindtap='cancelOrder' data-ordernumber="{{details.orderNumber}}" wx:if='{{details.orderStatus == 40}}'>
+			<text>取消订单</text>
+		</view>
+		<!-- <view class='forCall  flexJA' bindtap='toPay' data-orderNumber="{{details.orderNumber}}" wx:if='{{details.orderStatus == 40 && details.amount }}'>
+			<button class="subText homePhoneButton flexJA" disabled="{{payStatus}}">支付</button>
+		</view> -->
+    	<van-button bind:click="toPay" wx:if="{{details.orderStatus == 40 && details.amount}}" custom-style="width: 186rpx;height: 80rpx;border-radius: 40rpx;font-size: 28rpx;margin: 30rpx 30rpx;" color="#FE4648" round loading="{{payLoading}}" type="info" loading-text="" block>支付</van-button>
+
+<!-- 
+		<view class='forCall  flexJA' bindtap='receivingGoods' data-ordernumber="{{details.orderNumber}}" wx:if="{{details.orderStatus == 60 && details.pickedUp == 20 }}">
+			<text>确认收货</text>
+		</view> -->
+
+
+
+
+	</view>
+
+</view>
+
+<van-toast id="van-toast" />

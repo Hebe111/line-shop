@@ -1,0 +1,21 @@
+<!--components/empower/empower.wxml-->
+ 
+  <view class="userinfo " >
+    <view class='explain flexJA'>
+      <text>请您点击去授权</text>
+      <br />
+      <text>优先获取最新商品</text>
+    </view>
+    <view class='butt flexJA'>
+      <button class='getUserinfoButton flexJA'  open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        去授权
+      </button>
+    </view>
+  </view>
+  <view class='mask'></view>
+
+	<!-- <van-toast id="van-toast" /> -->
+
+
+
+ 

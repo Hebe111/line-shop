@@ -1,0 +1,158 @@
+/* pages/goodsDetails/goodsDetails.wxss */
+page{
+  background:rgba(236,240,244,1);
+} 
+.goodImg{
+  font-size: 0;
+  /* background-color: #fff; */
+}
+.commodityPrice {
+  background: rgba(254, 70, 72, 1);
+  color: #fff;
+  padding: 30rpx 20rpx 20rpx 20rpx;
+}
+ 
+.nowPrice {
+  color: #fff;
+
+}
+
+.nowPrice .nowPriceType {
+  color: #fff;
+  font-size: 40rpx;
+}
+.nowPrice .nowPriceText{
+  font-size: 58rpx;
+  font-weight: bold;
+}
+
+.oldPrice {
+  color: #E0E0E0;
+  font-size: 24rpx;
+  margin-left: 15rpx;
+}
+.oldPrice .oldPriceText{
+  text-decoration: line-through;
+
+}
+
+.commodityName{
+  background-color: #fff;
+  padding-top: 30rpx;
+}
+.commodityNameTop{
+  /* height: 100rpx; */
+
+}
+.commodityNameTop .commodityNameleft {
+  font-size:34rpx;
+  max-width: calc(100% - 180rpx);
+}
+.commodityNameBottom{
+  /* height: 61rpx; */
+  padding-bottom: 20rpx;
+}
+.commodityNameBottom text {
+  color: #08AC00;
+  font-size: 30rpx;
+  font-family:PingFang SC;
+}
+/*  */
+.commodityNameRight{
+  height: 45rpx; 
+
+}
+.quantityViewStyle { 
+  height: 45rpx; 
+}
+.minusStyle {
+  height:45rpx;
+
+  width:54rpx; 
+  
+}
+.plusStyle {
+  height:45rpx;
+  width:54rpx; 
+}
+.inputViewStyle {
+  /* height:34rpx; */
+  width:55rpx; 
+  transform: translateY(-3rpx);
+  text-align: center;
+}
+.inputStyle {
+  width:55rpx;
+  /* height:54rpx;
+  line-height: 34rpx; */
+  text-align:center;
+  font-size:30rpx; 
+}
+/*  */
+.goodsBasicIf{
+  margin: 10rpx 0;
+  background-color: #fff;
+
+}
+.goodsBasicInformation{
+  /* height: 72rpx; */
+  font-size: 28rpx;
+  padding:14rpx 0;
+}
+.goodsBasicInformation .goodsBasicInformationLeft{
+  color: #999999;
+  min-width: 130rpx;
+  align-self: baseline;
+}
+.goodsBasicInformation .goodsBasicInformationRight{
+  color: #333333;
+  margin-left: 15rpx;
+}
+/*  */
+.goStore{ 
+  background-color: #fff;
+  height: 178rpx;
+  margin-bottom: 108rpx;
+}
+.goStore .goStoreLeft{ 
+}
+.goStore .goStoreLeft .logo{ 
+  width: 120rpx;
+  height: 110rpx;
+  margin-right: 10rpx;
+}
+
+/*  */
+.fotter{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+}
+.fotter .fotterSon{
+  /* height: 100%; */
+  height: 108rpx;
+  background-color: #fff;
+  padding: 0 20rpx;
+}
+.fotter .totalPrice .total{
+  color: #999999;
+  font-size: 30rpx;
+}
+.fotter .totalPrice .priceText{
+  color: #FE4648;
+  font-size: 53rpx;
+}
+.fotter .totalPrice .priceText .priceType{
+  color: #FE4648;
+  font-size: 42rpx;
+}
+/* 授权失败 */
+.pageShowFalse{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+.pageShowFalse text{
+  margin-bottom: 15rpx;
+}

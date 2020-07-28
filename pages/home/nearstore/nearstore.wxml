@@ -1,0 +1,32 @@
+<!--components/nearstore/nearstore.wxml-->
+<!-- 附近的店列表  display:inline-block; -->
+<van-skeleton row="2" loading="{{ loading }}">
+	<view style="display: flex;overflow:hidden;background-color: #fff;">
+		<scroll-view class="scroll-view_V" style="width: 100%;height:100%; " bindscroll="scroll">
+
+			<!-- background:#234234; scroll-view-item_H  align-items:flex-end; justify-content:center; scroll-y="true" white-space:nowrap;word-break:keep-all; text-align:center  -->
+			<view style="margin: 0 0;" class="storeList" wx:for="{{storeList}}" wx:key="index">
+				<view style="position:absolute;display:inline-block;top:(0+{{index*150}})rpx;left:0;width:40rpx;height:40rpx;z-index:4000;">
+        <view wx:if='{{selectTheIndex == index}}'>
+        <image src="/image/selectArea.png" style="width:40rpx;height:40rpx;float"></image>
+        </view>
+        </view>
+        <!-- display:fixed;position: relative; width:100%;height:100rpx;  bind:click display:inline-block;-->
+				<view class="" style="margin: 10px 10px;position: relative;height:150rpx;" bindtap="selectTheStore" data-index="{{index}}">
+					<text class="bigtext" style="display:block;">{{item.name}}  {{item.showDistance}}</text>
+					<text class="normal" style="display:block;">在售商品：{{item.number}}个</text>
+					<text class="normal greytext" style="display:block;">详细地址：{{item.place}}</text>
+					<text class="normal greytext" style="display:block;">营业时间：{{item.workTime}}</text>
+							
+						
+				</view>
+
+
+
+			</view>
+
+		</scroll-view>
+	</view>
+</van-skeleton>
+
+<van-toast id="van-toast" />

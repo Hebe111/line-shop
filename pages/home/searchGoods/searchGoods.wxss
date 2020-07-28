@@ -1,0 +1,32 @@
+/* pages/home/searchGoods/searchGoods.wxss */
+.scroll-view_V{
+  /* white-space: nowrap; */
+  width: 100%;
+  
+}
+.goodImg{
+  font-size: 0;
+  border-radius: 15rpx 15rpx 0 0;
+  /* margin-bottom: 10rpx; */
+}
+.towLineText {
+  display: -webkit-box;
+overflow: hidden;
+text-overflow: ellipsis;
+word-wrap: break-word;
+white-space: normal !important;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+}
+.greyText{
+  color: #aaa;
+}
+.nowPriceType{
+  color: #FE4648;
+  font-size: 24rpx;
+}
+.oldPrice {
+  color: #999999;
+  font-size: 24rpx;
+  text-decoration:line-through;
+}

@@ -1,0 +1,57 @@
+<!--pages/tabBarPages/commodity/commodity.wxml-->
+<wxs module="tools" src="./function.wxs" />
+<view class="container">
+  <view class="searchBar">
+    <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/search.png"></image>
+    <input placeholder="请输入商品名称" value="{{searchText}}" bindinput="setSearchText" confirm-type="search" bindconfirm="search" bindblur="search"> </input>
+  </view>
+  <view class="goodsBar">
+    <view class="left">
+      <view wx:for="{{classifyList}}" wx:key="{{index}}" wx:for-item="item" class="label {{item.name == selectedName ? 'actived' : ''}}" bindtap="selectCategory" data-code="{{item.code}}" data-name="{{item.name}}" data-queryType="{{item.queryType}}">
+        {{item.name}}
+        <view class="activedLine" wx:if="{{item == selectedIndex}}">
+        </view>
+        <image wx:if="{{item.name == '热门活动'}}" src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/hot.png"></image>
+      </view>
+    </view>
+    <view class="right">
+      <scroll-view wx:if="{{goodsList.length > 0}}">
+        <view wx:for="{{goodsList}}" wx:key="{{index}}" class="goodsList" bindtap="toDetails" data-commodityId="{{item.commodityId}}" data-stockIdList="{{item.stockIdList}}">
+          <image src="{{item.imageList[0]}}">
+          </image>
+          <view class="goodsInfo"> 
+            <text class="title">{{item.commodityName}}</text>
+            <text class="describe">{{item.subtitle}}</text>
+            <view class="toolBar">
+              <view class="tagAndPrice">
+                <view class="tag"><text wx:for="{{tools.splitArr(item.labels)}}" wx:key="{{index}}">{{item}}</text></view>
+                <view class="price">￥{{item.activityType == null ? item.realPrice : item.activityPrice}}<text>￥{{item.guidePrice}}</text></view>
+              </view>
+              <view class="timeAndBuy" wx:if="{{item.activityBeginTimeDistance == 0 && item.activityType == 1 && item.activityEndTimeDistance > 0}}">
+                <view class="endDown">
+                  <van-count-down time="{{item.activityEndTimeDistance}}" /><text class="countDown">后结束</text>
+                </view>
+                <view wx:if="{{tools.arrayfind(shoppingCarStockIdList,item.stockIdList[0])}}" class="immediately" catchtap="addCar" data-goodsInfo="{{item}}">马上抢</view>
+                <view wx:else class="quantityBar">
+                  <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/reduce.png" catchtap="reduceQuantity" data-commodityId="{{item.commodityId}}" data-stockId="{{item.stockIdList[0]}}"></image>
+                  <input value="{{shoppingCarList[tools.arrayIndex(shoppingCarStockIdList,item.stockIdList[0])].quantity}}" disabled="{{true}}"></input>
+                  <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/add.png" catchtap="addQuantity" data-commodityId="{{item.commodityId}}" data-stockId="{{item.stockIdList[0]}}"></image>
+                </view>
+              </view>
+              <view wx:elif="{{item.activityBeginTimeDistance > 0 && item.activityType == 1}}" class="startCountDown">
+                <van-count-down time="{{item.activityBeginTimeDistance}}" class="startDown"/>
+                <text style="font-size: 20rpx">后开始</text>
+              </view>
+              <view wx:elif="{{item.activityEndTime < nowTime && item.activityType == 1}}" class="startCountDown">
+                <van-count-down time="{{(item.activityBeginTime - Date().getTime())/(24 * 60 * 60 * 1000)}}" class="startDown"/>
+                <text style="font-size: 20rpx">已结束</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+      <view wx:else class="noGoods"> 暂无商品</view>
+    </view>
+  </view>
+  <shoppingBar shoppingCarList="{{shoppingCarList}}" shoppingCarInfo="{{shoppingCarInfo}}" bind:reduce="onReduce" bind:add="onAdd" bind:cleanShoppingCar="cleanShoppingCar"></shoppingBar>
+</view>

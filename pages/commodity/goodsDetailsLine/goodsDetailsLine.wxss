@@ -1,0 +1,464 @@
+/* pages/commodity//goodsDetailsLine/goodsDetailsLine.wxss */
+.swipper image{
+  width: 100%;
+  height: 750rpx;
+}
+.detailsBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 100rpx;
+  overflow-y: scroll;
+}
+
+.priceBar{
+  padding: 0 20rpx;
+  height: 100rpx;
+  background: #FE4648;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.priceAndTag{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.specialRate{
+  color: white;
+  font-size: 59rpx;
+  margin-right: 20rpx;
+}
+
+.tagBar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tagBar .tag{
+  padding: 6rpx 20rpx;
+  border-radius: 20rpx;
+  background: white;
+  color: #FE4648;
+  font-size: 22rpx;
+  margin-bottom: 6rpx;
+}
+
+.tagBar .originalPrice{
+  color: #E0E0E0;
+  font-size: 24rpx;
+}
+
+.tagBar .originalPrice text{
+  text-decoration-line:  line-through;
+}
+
+.countDown{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+}
+
+.textSpace{
+  display: inline-block;
+  color: white;
+  padding: 0 8rpx;
+  font-size: 28rpx;
+}
+
+.item{
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #FE4648;
+  font-size: 26rpx;
+  background: white;
+  text-align: center;
+  border-radius: 6rpx;
+}
+
+.titleAndTip{
+  padding: 30rpx 20rpx 30rpx 20rpx;
+}
+
+.titleAndTip .titleAndQnantity{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.titleAndTip .titleAndQnantity .quantity{
+  width: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.titleAndTip .titleAndQnantity .quantity image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.titleAndTip .titleAndQnantity .quantity input{
+  width: 80rpx;
+  text-align: center;
+}
+
+.titleAndTip .titleAndQnantity .title{
+  width: calc(100% - 240rpx);
+  color: #333333;
+  font-size: 34rpx;
+}
+
+.titleAndTip .tip{
+  color: #08AC00;
+  margin-top: 42rpx;
+  font-size: 30rpx; 
+  display: flex;
+}
+
+.grayBar{
+  width: 100%;
+  height: 20rpx;
+  background: #F4F6FC;
+}
+
+.logoBar{
+  padding: 30rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoBar .logo{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logoBar .logo image{
+  width: 120rpx;
+  height: 110rpx;
+}
+
+.logoBar .logo text{
+  color: #333333;
+  font-size: 34rpx;
+  margin-left: 26rpx;
+}
+
+.logoBar .button{
+  width: 142rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  border: 2rpx solid #FE4648;
+  color: #FE4648;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.explain{
+  padding: 30rpx 20rpx 0 20rpx;
+  font-size: 28rpx;
+}
+
+.explainItem{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 40rpx;
+}
+
+.explainItem.label{
+  color: #999999;
+}
+
+.explainItem .content{
+  color: #999999;
+  margin-left: 22rpx;
+}
+
+.makeGroup{
+  padding: 0 20rpx 0 20rpx;
+}
+
+.makeGroup .title{
+  height: 66rpx;
+  color: #333333;
+  font-size: 28rpx;
+  line-height: 66rpx;
+}
+
+.makeGroup .member{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-top: 2rpx solid #EBEEF6;
+}
+
+.makeGroup .member .name{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.makeGroup .member .name image{
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 33rpx;
+  margin-right: 20rpx;
+}
+
+.makeGroup .member .name text{
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.memberInfo{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.memberAndTime{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin-right: 20rpx;
+  color: #333333;
+  font-size: 24rpx;
+}
+
+.memberInfo .button{
+  width: 120rpx;
+  height: 56rpx;
+  border-radius: 10rpx;
+  color: white;
+  font-size: 24rpx;
+  background: #FE4648;
+  text-align: center;
+  line-height: 56rpx;
+}
+
+.memberAndTime .endDown{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.memberAndTime .endDown .van-count-down{
+  color: #333333;
+  font-size: 24rpx;
+}
+
+/* 拼团按钮组 */
+.gorupButton{
+  position: fixed;
+  bottom: 0rpx;
+  height: 98rpx;
+  width: 100%;
+  border-top: 2rpx solid #EBEEF6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addShoppingCar{
+  position: fixed;
+  bottom: 0rpx;
+  height: 98rpx;
+  width: 100%;
+  border-top: 2rpx solid #EBEEF6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addShoppingCar .button{
+  border-radius: 44rpx;
+  background: #FE4648;
+  width: calc(100% - 40rpx);
+  height: 88rpx;
+  color: white;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 88rpx;
+}
+
+.gorupButton .button{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: calc((100% - 40rpx) / 2);
+  height: 88rpx;
+  color: white;
+  font-size: 28rpx;
+}
+
+.gorupButton .buy{
+  border-radius: 44rpx 0 0 44rpx;
+  border-right: 2rox solid white;
+  background: #FFC000
+}
+
+.gorupButton .group{
+  border-radius: 0 44rpx 44rpx 0;
+  background: #FE4648;
+}
+
+/* 规格弹窗 */
+.shoppingMask{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 98rpx;
+  background: rgba(0,0,0,0.66);
+  z-index: 10;
+}
+
+.maskContent{
+  position: fixed;
+  bottom: 98rpx;
+  left: 0rpx;
+  right: 0rpx;
+  overflow: hidden;
+  background: white;
+  border-radius: 20rpx 20rpx 0 0;
+  z-index: 20;
+  padding: 30rpx 20rpx;
+}
+
+.maskContent .top{
+  position: absolute;
+  top: 30rpx;
+  left: 20rpx;
+  right: 20rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.maskContent .top .goodsInfo{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.maskContent .close{
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.maskContent .top .goodsInfo .goodsImg{
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 32rpx;
+}
+
+.maskContent .top .goodsInfo .goodsDetails{
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.maskContent .top .goodsInfo .goodsDetails .price{
+  color: #FE4648;
+  font-size: 36rpx;
+}
+
+.maskContent .top .goodsInfo .goodsDetails .quantity,.maskContent .top .goodsInfo .goodsDetails .distribution{
+  color: #999999;
+  font-size: 26rpx;
+}
+
+.maskContent .top .goodsInfo .goodsDetails .selectTag{
+  color: #333333;
+  font-size: 26rpx;
+}
+
+.maskContent .quantityBar {
+  position: absolute;
+  bottom: 40rpx;
+  left: 20rpx;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.maskContent .quantityBar text{
+  color: #333333;
+  font-size: 32rpx;
+}
+
+.quantityEdit{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.quantityEdit image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.quantityEdit input{
+  width: 80rpx;
+  text-align: center;
+}
+
+.specBar{
+  margin: 220rpx 0 80rpx 0;
+  max-height: 500rpx;
+  overflow-y: scroll;
+}
+
+.specificationsBar{
+  margin-top: 20rpx;
+}
+
+.specificationsBar .label{
+  color: 30rpx;
+  font-size: 30rpx;
+}
+
+.itemBar{
+  display: flex;
+  flex-wrap: wrap;
+}
+.specificationItem{
+  padding: 5rpx 40rpx;
+  border-radius: 20rpx;
+  font-size: 30rpx;
+  margin: 25rpx 25rpx 0 0;
+}
+
+.specItemUnActive{
+  border: 2rpx solid #666666;
+  color: #666666;
+}
+
+.specItemActive{
+  border: 2rpx solid #FE4648;
+  color: #FE4648;
+  background-color: #FFEDED;
+}
+
+.noSelect{
+  border: 2rpx solid #BBBBBB;
+  color: #BBBBBB;
+}

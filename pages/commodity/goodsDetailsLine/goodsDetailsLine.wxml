@@ -1,0 +1,145 @@
+<!--pages/commodity//goodsDetailsLine/goodsDetailsLine.wxml-->
+<wxs module="tools" src="./function.wxs" />
+<view class="detailsBar">
+  <scroll-view>
+    <view class="swiper">
+      <swiper autoplay="{{false}}" duration="1000" interval="1000" circular="0" style="height:750rpx;">
+        <block wx:for="{{goodsInfo.imageList}}" wx:for-key="{{index}}" wx:for-item="image">
+            <swiper-item>
+              <image src="{{image}}" data-id="{{index}}" class="slide-image" mode="aspectFill" style="width: 100%;height: 750rpx;"/>
+            </swiper-item>
+          </block>
+      </swiper>
+    </view>
+    <view class="priceBar">
+      <view class="priceAndTag">
+        <text class="specialRate">￥{{goodsInfo.activityType == null ? (selectInfo.realPrice != '' ? selectInfo.realPrice : goodsInfo.originalPrice) : (selectInfo.activityPrice != '' ? selectInfo.activityPrice : goodsInfo.minActivityPrice)  }}</text>
+        <view class="tagBar" wx:if="{{goodsInfo.activityType != null}}">
+          <text class="tag">{{goodsInfo.activityType == 1 ? '秒杀' : '拼团'}}</text>
+          <view class="originalPrice">原价：<text>￥{{selectInfo.guidePrice != '' ? selectInfo.guidePrice : goodsInfo.minGuidePrice }}</text></view>
+        </view>
+      </view>
+      <view class="countDown" wx:if="{{goodsInfo.activityType != null}}">
+        <text class="title">距离{{goodsInfo.activityBeginTimeDistance == 0 ? '结束' : '开始'}}还剩</text>
+        <view class="time">
+          <van-count-down use-slot time="{{ goodsInfo.activityBeginTimeDistance == 0 ? goodsInfo.activityEndTimeDistance : goodsInfo.activityBeginTimeDistance }}" bind:change="onChange">
+            <text class="textSpace">{{ timeData.days }}天</text>
+            <text class="item">{{ timeData.hours }}</text>
+            <text class="textSpace">:</text>
+            <text class="item">{{ timeData.minutes }}</text>
+            <text class="textSpace">:</text>
+            <text class="item">{{ timeData.seconds }}</text>
+          </van-count-down>
+        </view>
+      </view>
+    </view>
+    <view class="titleAndTip">
+      <view class="titleAndQnantity">
+        <view class="title">{{goodsInfo.commodityName}}</view>
+        <view class="quantity" wx:if="{{goodsInfo.activityType == 1}}">
+          <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/reduce.png" bindtap="reduce" wx:if="{{goodsInfoBuyQuantity != 0}}"></image>
+          <input value="{{goodsInfoBuyQuantity}}" disabled="{{true}}" wx:if="{{goodsInfoBuyQuantity != 0}}"></input>
+          <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/add.png" bindtap="add"></image>
+        </view>
+      </view>
+      <view class="tip">
+        <van-icon name="good-job" color="#08AC00" size="15px" />
+        <text>安全美味，产地直供</text>
+      </view>
+    </view>
+    <view class="grayBar"></view>
+    <view class="explain" wx:if="{{goodsInfo.attributeList.length > 0}}">
+      <view class="explainItem" wx:for="{{goodsInfo.attributeList}}"  wx:for-key="{{index}}" wx:for-item="item">
+        <text clsss="label">{{item.name}}</text>
+        <text class="content">{{item.content}}</text>
+      </view>
+    </view>
+    <view class="grayBar" wx:if="{{goodsInfo.attributeList.length > 0}}"></view>
+    <view class="makeGroup" wx:if="{{goodsInfo.activityType == 2 && gropList.length > 0}}">
+      <view class="title">{{gropList.length}}人正在拼单，可直接参与</view>
+      <view class="member" wx:for="{{gropList}}" wx:for-key="{{index}}" wx:for-item="item">
+        <view class="name">
+          <image src="{{item.creatorAvatar}}"></image>
+          <text>{{item.creatorName}}</text>
+        </view>
+        <view class="memberInfo">
+          <view class="memberAndTime">
+            <text>还差{{item.remainingPeopleNumber}}人拼成</text>
+            <view class="endDown">
+              <text>剩余</text>
+              <van-count-down time="{{item.remainingTime}}"/>
+            </view>
+          </view>
+          <view class="button" bindtap="group" data-id="{{item.id}}">去拼团</view>
+        </view>
+      </view>
+    </view>
+    <view class="grayBar" wx:if="{{goodsInfo.activityType == 2 && gropList.length > 0}}"></view>
+    <view class="logoBar">
+      <view class="logo">
+        <image src="https://oss.eggxiaoer.com/web/miniprogram/loginLogo.png"></image>
+        <text>金沃优选</text>
+      </view>
+      <view class="button" bindtap="toHome">进店逛逛</view>
+    </view>
+     <view class="grayBar"></view>
+  </scroll-view>
+</view>
+
+<shoppingBar shoppingCarList="{{shoppingCarList}}" shoppingCarInfo="{{shoppingCarInfo}}" bind:reduce="onReduce" bind:add="onAdd" bind:cleanShoppingCar="cleanShoppingCar" wx:if="{{goodsInfo.activityType == 1}}"></shoppingBar>
+
+<view wx:if="{{goodsInfo.activityType != 1}}">
+  <view class="gorupButton" wx:if="{{goodsInfo.activityType == 2 && selectGroupId == null && groupId == null }}">
+    <view class="button buy" bindtap="selfBuy">
+      <text>￥{{selectInfo.realPrice != '' ? selectInfo.realPrice : goodsInfo.originalPrice}}</text>
+      <text>单独购买</text>
+    </view>
+    <view class="button group" bindtap="groupBuy">
+      <text>￥{{selectInfo.activityPrice != '' ? selectInfo.activityPrice : goodsInfo.minActivityPrice  }}</text>
+      <text>发起拼团</text>
+    </view>
+  </view>
+  <view  class="addShoppingCar" wx:elif="{{goodsInfo.activityType == null}}">
+    <view class="button" bindtap="selfBuy">加入购物车</view>
+  </view>
+  <view  class="addShoppingCar" wx:elif="{{selectGroupId != null || groupId != null}}">
+    <view class="button" bindtap="group">去拼团</view>
+  </view>
+
+  <view class="shoppingMask"  wx:if="{{showModalStatus}}" bindtap="hideModal">
+  </view>
+  <view class="maskContent" animation='{{animationData}}' wx:if="{{showModalStatus}}">
+    <view class="top">
+      <view class="goodsInfo">
+        <image class="goodsImg" src="{{selectInfo.image != '' ? selectInfo.image : goodsInfo.imageList[0]}}"></image>
+        <view class="goodsDetails">
+          <text class="price">{{selectInfo.realPrice != '' ? selectInfo.realPrice : goodsInfo.originalPrice}}元</text>
+          <text class="quantity">库存：{{selectInfo.stockNum}}</text>
+          <text class="distribution">配送量：{{selectInfo.minPurchaseQuantity}}-{{selectInfo.maxPurchaseQuantity}}</text>
+          <text class="selectTag">已选：<text wx:for="{{selectList}}" wx:key="index" wx:for-item="item">{{item != '' ? "“"+item +"”" : ''}}</text></text>
+        </view>
+      </view>
+      <van-icon name="clear" color="#d4d4d4" size="40rpx" bindtap="hideModal"/>
+    </view>
+    <view class="specBar">
+      <view wx:for="{{goodsInfo.specificationList}}"  wx:key="index" wx:for-item="item" class="specificationsBar">
+        <view>{{item.value}}</view>
+        <view class="itemBar">
+          <view wx:for="{{goodsInfo.valueOpts[item.key]}}"  wx:for-index="childIndex" wx:for-item="item2" class="specificationItem {{(index == 0 || selectList[index] != '') ? (index == 0 ? (selectList[index] == item2 ? 'specItemActive' : 'specItemUnActive'): (tools.filterList(0,index-1,goodsInfo.skuList,goodsInfo,selectList,item2) ? (selectList[index] == item2 ? 'specItemActive' : 'specItemUnActive') : 'noSelect')) : (selectList[i - 1] == '' ? 'noSelect' : (tools.filterList(0,index-1,goodsInfo.skuList,goodsInfo,selectList,item2) ? (selectList[index] == item2 ? 'specItemActive' : 'specItemUnActive') : 'noSelect'))}}" bindtap="bindSelect" data-suttleItem="{{index}}" data-item="{{item2}}" data-isBind="{{tools.filterList(0,index-1,goodsInfo.skuList,goodsInfo,selectList,item2)}}">{{item2}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="quantityBar">
+      <text >购买数量</text>
+      <view class="quantityEdit">
+        <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/reduce.png" bindtap="groupReduce"></image>
+        <input value="{{goodsInfoBuyQuantity}}" disabled="{{true}}"></input>
+        <image src="https://eggwaiter.oss-cn-beijing.aliyuncs.com/web/miniprogram/add.png" bindtap="groupAdd"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+

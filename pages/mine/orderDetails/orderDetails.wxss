@@ -1,0 +1,581 @@
+/* pages/orderDetails/orderDetails.wxss */
+
+page {
+  height: 100%;
+  background: rgba(244, 246, 252, 1);
+}
+
+.orderStatusTop {
+  color: #333 !important;
+  margin-top: 30rpx;
+}
+
+.orderDetails {}
+
+.red {
+  color: #f9151f;
+}
+
+.ovimg {
+  /* width: 38rpx;
+  height: 38rpx; */
+  font-size: 34rpx;
+  font-weight: bold;
+  /* margin: 0 0 43rpx 0; */
+  font-family: PingFangSC-Medium;
+}
+
+.ovimg image {
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 10rpx;
+}
+
+.goRightBlue {
+  width: 14.9rpx !important;
+  height: 27rpx !important;
+  background-color: transparent !important;
+  margin-left: 10rpx;
+}
+
+.phone {
+  width: 100%;
+  position: fixed;
+  bottom: 0; 
+}
+
+.forCall {
+  color: #fff;
+  width: 186rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  margin: 30rpx 30rpx;
+  background:rgba(254,70,72,1);
+}
+
+.forCall2 {
+  color: #AAAAAA;
+  width: 186rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  margin: 30rpx 5rpx;
+  border: 2rpx solid #AAAAAA;
+}
+
+.cancelOrder {
+  color: #DC281E;
+  width: 200rpx;
+  height: 88rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  margin: 30rpx 0;
+  border: 1rpx solid #DC281E;
+}
+
+.cancelOrderJO {
+  color: #AAAAAA;
+  width: 186rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  margin: 30rpx 5rpx;
+  border: 2rpx solid #AAAAAA;
+}
+
+.cancelOrderJO2 {
+  color: #DC281E;
+  width: 260rpx;
+  height: 88rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  margin: 30rpx 5rpx;
+  border: 1rpx solid #DC281E;
+}
+
+.share image {
+  width: 30rpx;
+  height: 26rpx;
+  background: #333;
+}
+
+.shareB {
+  width: 330rpx !important;
+}
+
+.shareButton {
+  border: 0;
+  width: 330rpx !important;
+  height: 80rpx;
+}
+
+.odTitle {
+  height: 200rpx;
+  /* color: #fff; */
+  font-family: PingFangSC-Medium;
+}
+
+.over {
+  /* flex: 3; */
+  /* text-align: center; */
+  margin-left: 30rpx;
+  /* height: 135rpx; */
+}
+
+.logo {
+  flex: 2;
+}
+
+.logo image {
+  width: 120rpx;
+  height: 154rpx;
+}
+
+.essentialLnformation { 
+ 
+}
+.essentialLnformation .goodsDetails {
+  width: 710rpx;
+  /* height: 241rpx; */
+  background: rgba(255, 255, 255, 1);
+  box-shadow: -6rpx 8rpx 38rpx 2rpx rgba(166, 169, 171, 0.32);
+  border-radius: 20rpx;
+  margin: 20rpx 0;
+
+}
+.essentialLnformation .goodsDetails .detailsTitle{
+  font-size:28rpx;
+  color:rgba(51,51,51,1);
+  margin:20rpx 0;
+}
+.essentialLnformation .goodsDetailsList {
+
+}
+.essentialLnformation .goodsDetailsList .goodsDetailsListOne{
+    border-top: 1rpx solid rgba(244,246,252,1);
+    padding: 20rpx 0;
+    width: 100%;
+}
+.essentialLnformation .goodsDetailsList .goodsDetailsListOne:nth-child(1){
+  border:none;
+}
+.essentialLnformation .goodsDetailsList .goodsDetailsListOne .goodsDetailsListOneLeft{  
+    border-radius: 50%;
+    width: 140rpx;
+  height: 140rpx;
+}
+.essentialLnformation .goodsDetailsList .goodsDetailsListOne .goodsDetailsListOneLeft image{  
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+.essentialLnformation .goodsDetailsList .goodsDetailsListOne .goodsDetailsListOneRight{  
+  height: 140rpx;
+  width: 500rpx;
+}
+.essentialLnformation .goodsDetailsList .goodsDetailsListOne .goodsDetailsListOneRight .goodsDetailsListOneRightTop {
+  /* display: -webkit-box; */
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden;
+}
+.essentialLnformation .goodsDetailsList .goodsDetailsListOne .goodsDetailsListOneRight .goodsDetailsListOneRightBottom{
+
+}
+.personInfo {
+  height: 115rpx;
+}
+
+.personInfo .avt {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+}
+
+.personInfo text {
+  font-size: 28rpx;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 20rpx;
+}
+
+.aiInfo {
+  margin: 30rpx 0;
+}
+
+.aiInfoOrgin {
+  padding: 15rpx 0;
+}
+
+.adress_info {
+
+  background: rgba(255, 255, 255, 1);
+  /* padding: 10rpx 20rpx; */
+}
+
+.adin {
+  margin: 20rpx 0 160rpx 0;
+  padding: 0 30rpx 15rpx 30rpx;
+
+}
+
+.adin2 {
+  margin: 30rpx 0 30rpx 0;
+  padding: 0 30rpx 15rpx 30rpx;
+
+}
+
+.otherText {
+  font-size: 26rpx;
+  color: rgba(102, 102, 102, 1);
+}
+
+.supplyDetailstitle {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.supplyDetailstitleSeckill {
+  font-size: 28rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.supplyDetailstitleSeckill :first-child {
+  font-weight: bold;
+
+}
+
+.title_num {
+  align-content: center;
+  margin: 33rpx 0 23rpx 0;
+}
+
+.title_num .title {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  /* height:50rpx; */
+}
+
+.title_num .title .gy_cg {
+  /* display: flex; */
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 19rpx;
+  width: 70rpx;
+  height: 37rpx;
+  text-align: center;
+  line-height: 37rpx;
+}
+
+.beforetime {
+  width: 95rpx;
+  height: 37rpx;
+  text-align: left;
+  line-height: 37rpx;
+  font-size: 20rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+
+.supplyNum {
+  font-size: 22rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  /* margin: 0 26rpx; */
+}
+
+.supplyText {
+  background: rgba(62, 119, 230, 1);
+}
+
+.purchaseText {
+  background: rgba(75, 67, 235, 1);
+}
+
+.title_num .title .typeName {
+  font-weight: bolder;
+  margin: 0 26rpx;
+  font-size: 32rpx;
+}
+
+.title_num .title .number {
+  font-weight: bolder;
+  margin: 0 10rpx;
+  font-size: 32rpx;
+}
+
+.title_num .num {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(252, 19, 68, 1);
+}
+
+.optiontype {
+  margin: 15rpx 0 30rpx 0;
+}
+
+.optiontype :first-child {
+  margin-left: 90rpx;
+}
+
+.otyone {
+  width: 120rpx;
+  height: 36rpx;
+  border: 1rpx solid;
+  /* border-image:linear-gradient(45deg, rgba(75,67,235,1), rgba(62,121,230,1)) 10 10; */
+  background: linear-gradient(45deg, rgba(75, 67, 235, 1) 0%, rgba(62, 121, 230, 1) 100%);
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.infoOne {
+  padding: 0 30rpx;
+
+}
+
+.allPrice {
+  padding: 0 42rpx;
+  font-weight: bold;
+
+}
+
+.infoOne .efOneSeckil:last-child {
+  /* border-bottom: 1rpx solid #DADADA; */
+  padding-bottom: 25rpx;
+}
+
+.efOne {
+  padding: 24rpx 0;
+
+}
+
+.efOneSeckil {
+  margin: 25rpx 0;
+
+}
+
+.orderStatusText {
+  font-size: 38rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: bold;
+  margin: 30rpx 0 30rpx 37rpx;
+}
+
+.orderStatusContent {
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium;
+  color: rgba(255, 255, 255, 1);
+}
+
+.location {
+  width: 28rpx;
+  height: 36rpx;
+}
+
+.noDeliveryAddress {
+  margin-left: 36rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(153, 153, 153, 1);
+}
+
+.addressFrom {
+  margin-left: 10rpx;
+  font-size: 28rpx;
+}
+
+.addressFromSeckill {
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  align-self: flex-start;
+}
+
+.adressInfo {
+  margin-left: 22rpx;
+}
+
+.adressInfoBottom {
+  word-wrap: break-word;
+  /* word-break: normal; */
+  word-break: break-all;
+  margin-top: 10rpx;
+  align-self: flex-end;
+  text-align: left;
+}
+
+.adressInfoTop {
+  font-weight: 600;
+}
+
+.adressInfoTopName {
+  width: 290rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.titleRightOrderStatus {
+  width: 204rpx;
+  height: 151rpx;
+  margin-right: 30rpx;
+}
+
+.fortyText {
+  margin-top: 20rpx;
+}
+
+.fortyText text {
+  margin: 5rpx 0;
+}
+
+.statusContentMt {
+  margin-top: 40rpx;
+}
+
+.copyBtn {
+  width: 100rpx;
+  height: 40rpx;
+  margin-left: 39rpx;
+}
+
+.coGary {
+  background: rgba(209, 209, 209, 1);
+  box-shadow: 1px -2px 19px 1px rgba(80, 80, 80, 0.2);
+  color: #666666;
+}
+
+.dealPriceContent {
+  width: 540rpx;
+  height: 320rpx;
+  border-radius: 20rpx;
+  align-items: center;
+}
+
+.dPrice {
+  font-size: 36rpx;
+}
+
+.dealPriceStatusDetermine {
+  width: 300rpx;
+  height: 88rpx;
+  font-size: 28rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-top: 80rpx;
+
+}
+
+.dealPriceStatusDetermine button {
+  width: 300rpx;
+  height: 88rpx;
+  font-size: 28rpx;
+  color: #fff;
+
+}
+
+input {
+  max-width: 140rpx;
+  border-bottom: 1rpx solid #DC281E;
+  text-align: center;
+  margin: 0 15rpx;
+}
+
+.preferential {
+  width: 300rpx !important;
+}
+
+.preferential .preferentialText {
+  font-size: 22rpx;
+  color: rgba(153, 153, 153, 1);
+  line-height: 34px;
+}
+
+.van-popup {
+  border-radius: 20rpx;
+}
+
+.subText {
+  width: 360rpx;
+  height: 88rpx;
+  color: #fff;
+  border: none !important;
+}
+
+/* 提货信息 */
+.pickUpGoods {
+  /* width: 100%; */
+  text-align: center;
+}
+
+.pickUpGoods10 {
+  width: 710rpx;
+  /* height: 241rpx; */
+  background: rgba(255, 255, 255, 1);
+  box-shadow: -6rpx 8rpx 38rpx 2rpx rgba(166, 169, 171, 0.32);
+  border-radius: 20rpx;
+  margin: 20rpx 0;
+}
+
+.pickUpGoods10 .pickOne {
+  border-bottom: 1rpx solid rgba(244, 246, 252, 1);
+  padding: 25rpx 0;
+  /* height: 79rpx; */
+}
+
+.pickUpGoods10 .pickOne text:first-child {
+  min-width: 140rpx;
+  text-align: left;
+  align-self: baseline;
+}
+
+.pickUpGoods10 .pickOne text:last-child {
+  text-align: left;
+}
+
+.pickUpGoods10 .pickOne:last-child {
+  border-bottom: none;
+}
+
+.pickUpGoods20 {
+  width: 710rpx;
+  /* height: 241rpx; */
+  background: rgba(255, 255, 255, 1);
+  box-shadow: -6rpx 8rpx 38rpx 2rpx rgba(166, 169, 171, 0.32);
+  border-radius: 20rpx;
+  margin: 20rpx 0;
+  padding: 10rpx 20rpx;
+}
+
+.choseOne {}
+
+.oederDetails{
+
+}
+.oederDetails .orederInfoOne{
+  margin: 20rpx 0;
+  color: #333333;
+}
+.amount{
+  height: 88rpx;
+}
+.amount .amountText{
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.activityName{
+  background:#FFD3D1;
+  border-radius:6rpx;
+  font-size:18rpx;
+  color:rgba(255,255,255,1);
+  padding: 0rpx 5rpx;
+  margin-left: 15rpx;
+  color: #DB271D;
+}

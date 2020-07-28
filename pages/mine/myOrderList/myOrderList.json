@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index"
+
+  }, 
+    "enablePullDownRefresh": true,
+  "navigationBarTitleText": "我的订单"
+
+}

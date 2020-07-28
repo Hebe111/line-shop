@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "shoppingBar": "/components/shoppingCar/shoppingCar",
+    "van-count-down": "@vant/weapp/count-down/index"
+  },
+  "navigationBarTitleText": "限时抢购"
+}

@@ -1,0 +1,182 @@
+<!-- pages/index/index.wxml -->
+<van-row wx:if="{{pageShow}}">
+	<van-col span="24">
+		<van-skeleton row="2" loading="{{ loading }}">
+			<!-- 添加到我的小程序 -->
+			<view class="addMimi plr20 bcfff" wx:if='{{addMimiShow}}'>
+				<view class="addMimiText flexJsAc">
+					<view class="flexJf">
+						<text>添加到我的小程序，下次买蛋更便捷</text>
+						<van-button color="#FE4648" size="mbuttonini" custom-style='border-radius:10rpx;height:34rpx;width:63rpx;font-size:20rpx;line-height: 34rpx;' bind:click="closeAddMimiShow">
+							添加
+						</van-button>
+					</view>
+					<van-icon name="cross" size="15px" bind:click="closeAddMimiClose" />
+				</view>
+				<image class="addMiniImg" wx:if='{{overlayShow}}' bindtap="onClickHide" src="https://oss.eggxiaoer.com/web/miniprogram/addMini.png"></image>
+			</view>
+			<!-- 定位 -->
+
+			<view class="location flexJsAc plr20 bcfff">
+				<van-skeleton row="1" loading="{{ storeInfoShow }}" animate="true">
+					<view class="location_storeName flexJA" bindtap="getLocation">
+						<van-icon name="location-o" color="#FE4648" size="30px" />
+						<text>{{storeInfo.name}}</text>
+					</view>
+				</van-skeleton>
+				<view style="display:inline-flex;text-align:center;align-items:flex-end;"> 
+					<van-icon name="balance-list" color="#FE4648" size="30px" bind:click="goOrderList" />
+				<i-switch
+					 value="{{ checked }}"
+					 size="large"
+					 bind:change="chooseTheMode"
+					 slot="footer"
+					 activeColor="#07c160"
+					 inactiveColor="#ee0a24"
+					>
+						<view slot="open">商城</view>
+						<view slot="close">到店</view>
+					</i-switch>
+				</view>
+				
+			</view>
+		</van-skeleton>
+
+		<van-skeleton row="2" loading="{{ loading }}">
+			<!-- 限时特惠 图片 -->
+			<van-image width="100%" height="75" image-class="width:100%;" fit="widthFix" lazy-load src="https://oss.eggxiaoer.com/web/miniprogram/limitedtimespecial.png" />
+		</van-skeleton>
+
+		<!-- 商品列表 -->
+		<view class="goodsFather plr20 ">
+			<view class="goodsList ">
+				<view class="listLeft">
+					<view class="good_one flexJA" wx:for="{{goodsList}}" wx:key="index" >
+						<view class="goodDetails flexFcAc" wx:if="{{index%2==0}}" bindtap="goDetails" data-commodityId="{{item.commodityId}}" data-shopId="{{item.shopId}}" data-stockId="{{item.stockId}}">
+							<view class="goodImg">
+								<van-image width="100%" image-class="width:100%;height:100%" fit="widthFix" lazy-load src="{{item.img}}" />
+							</view>
+							<van-skeleton row="2" loading="{{ loading }}" animate="true">
+								<view class="title_price plr10 flexJf ">
+									<!-- <text class="discount flexJA">{{item.Discount}}折起</text> -->
+									<text class="title">{{item.commodityName}} {{item.subtitle}}</text>
+									<text class="title"></text>
+								</view>
+								<view class="price_number plr10 flexJsAc">
+									<view class="twoprice flexAFJsb">
+										<text class="nowPrice">
+                  <text class="nowPriceType">￥</text>
+										<text class="nowPriceText">{{item.priceShow}}</text>
+										</text>
+										<text class="oldPrice">￥{{item.suggestPriceShow}}</text>
+									</view>
+									<view class="buyNumber flexAFJsb">
+										<view class="quantityViewStyle flexJA">
+											<view class="minusStyle" catchtap="minus" data-index="{{index}}" wx:if="{{ item.buyQuantity > 0}}">
+												<van-image width="24" height="24" fit="widthFix" lazy-load src="https://oss.eggxiaoer.com/web/miniprogram/minusStyle.png" />
+											</view>
+											<view class="inputViewStyle" wx:if="{{ item.buyQuantity > 0}}">
+												<input class="inputStyle" value="{{item.buyQuantity}}" type="number" disabled="{{true}}" />
+											</view>
+											<view class="plusStyle" catchtap="plus" data-index="{{index}}" wx:if="{{ item.buyQuantity <= item.remainQuantity}}">
+												<van-image width="24" height="24" fit="widthFix" lazy-load src="https://oss.eggxiaoer.com/web/miniprogram/plusStyle.png" />
+											</view>
+										</view>
+									</view>
+								</view>
+							</van-skeleton>
+
+
+						</view>
+					</view>
+				</view>
+					<view class="listRight">
+					<view class="good_one flexJA"  wx:for="{{goodsList}}" wx:key="index" >
+						<view class="goodDetails flexFcAc" wx:if="{{index%2==1}}" bindtap="goDetails" data-commodityId="{{item.commodityId}}" data-shopId="{{item.shopId}}" data-stockId="{{item.stockId}}">
+							<view class="goodImg">
+								<van-image width="100%" image-class="width:100%;height:100%" fit="widthFix" lazy-load src="{{item.img}}" />
+							</view>
+							<van-skeleton row="2" loading="{{ loading }}" animate="true">
+								<view class="title_price plr10 flexJf ">
+									<!-- <text class="discount flexJA">{{item.Discount}}折起</text> -->
+									<text class="title">{{item.commodityName}} {{item.subtitle}}</text>
+									<text class="title"></text>
+								</view>
+								<view class="price_number plr10 flexJsAc">
+									<view class="twoprice flexAFJsb">
+										<text class="nowPrice">
+                  <text class="nowPriceType">￥</text>
+										<text class="nowPriceText">{{item.priceShow}}</text>
+										</text>
+										<text class="oldPrice">￥{{item.suggestPriceShow}}</text>
+									</view>
+									<view class="buyNumber flexAFJsb">
+										<view class="quantityViewStyle flexJA">
+											<view class="minusStyle" catchtap="minus" data-index="{{index}}" wx:if="{{ item.buyQuantity > 0}}">
+												<van-image width="24" height="24" fit="widthFix" lazy-load src="https://oss.eggxiaoer.com/web/miniprogram/minusStyle.png" />
+											</view>
+											<view class="inputViewStyle" wx:if="{{ item.buyQuantity > 0}}">
+												<input class="inputStyle" value="{{item.buyQuantity}}" type="number" disabled="{{true}}" />
+											</view>
+											<view class="plusStyle" catchtap="plus" data-index="{{index}}" wx:if="{{ item.buyQuantity <= item.remainQuantity}}">
+												<van-image width="24" height="24" fit="widthFix" lazy-load src="https://oss.eggxiaoer.com/web/miniprogram/plusStyle.png" />
+											</view>
+										</view>
+									</view>
+								</view>
+							</van-skeleton>
+
+
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<van-skeleton row="1" loading="{{ loading }}">
+			<!-- 底部 -->
+			<view class="fotter ">
+				<view class="flexJsAc fotterSon">
+					<view class="totalPrice">
+						<text class="total">合计:</text>
+						<text class="priceText"> <text class="priceType">￥</text>{{totalPrice}}</text>
+					</view>
+					<view class="pay">
+						<!-- 去支付 -->
+						<van-button color="#FE4648" size="normal" custom-style='border-radius:10rpx;height:90rpx;width:auto;font-size:40rpx;line-height: 90rpx; ' bind:click="toPay" wx:if="{{ !bindgetphonenumberStatus }}" disabled="{{buttonStatus}}">
+							我已在店内,去支付({{buyListNumberLength}})
+						</van-button>
+						<!-- 绑定手机号 -->
+						<van-button color="#FE4648" size="normal" custom-style='border-radius:10rpx;height:90rpx;width:auto;font-size:40rpx;line-height: 90rpx;' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{ bindgetphonenumberStatus }}">
+							我已在店内,去支付({{buyListNumberLength}})
+						</van-button>
+
+					</view>
+				</view>
+
+			</view>
+		</van-skeleton>
+
+	</van-col>
+</van-row>
+<van-row wx:else span="24">
+	<van-col>
+		<view class="pageShowFalse flexFcJc">
+			<text>您距离商家过远，请到现场选购！</text>
+					<van-button color="#FE4648" size="normal" custom-style='border-radius:10rpx;height:90rpx;width:auto;font-size:40rpx;line-height: 90rpx;'  bindtap="getLocation">
+							重新获取数据
+						</van-button>
+		</view>
+	</van-col>
+</van-row>
+
+<!-- 授权 -->
+<view wx:if="{{empower}}">
+	<empower bindmyevent="onEmpowerEvent"></empower>
+</view>
+
+<!--  -->
+<van-toast id="van-toast" />
+<!--  -->
+<!-- <van-button type="primary" bind:click="onClickShow">显示遮罩层</van-button> -->
+<van-overlay show="{{ overlayShow }}" bind:click="onClickHide" /> 
+<van-dialog id="van-dialog" />

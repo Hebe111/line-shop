@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "empower":"/components/empower/empower",
+    "van-overlay": "@vant/weapp/overlay/index"
+  }
+}

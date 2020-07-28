@@ -1,0 +1,62 @@
+<!--pages/home/chooseAdress/chooseAdress.wxml-->
+<view class='editingMaterials'>
+  <view class='info'>
+  <view style="color:#aaa;margin-bottom:20rpx;"> 送至</view>
+  <text style="margin-bottom:40rpx;" > {{locationName}}</text>
+
+<view style="color:#aaa;margin-bottom:20rpx;"> 当前定位</view>
+  <!-- <view style="text-color:#aaa" style="margin-bottom:20rpx;"> 当前定位</view> -->
+  <!-- <text style="margin-bottom:20rpx;" > {{storeInfo.name}}</text> -->
+  <view class="flexJA" style="display:row;justify-content: space-between;margin-bottom:20rpx;">
+						<view class="flexJA" style="display:row;justify-content: left;">
+						<van-icon
+						 name="location-o"
+						 bindtap="getLocation"
+						 color="#FE4648"
+						 size="15px"
+						/>
+						<text bindtap="choosethead" >{{locationAD.name == null?"选择右侧按钮重新定位":locationAD.name}}</text>
+					</view>
+          <view class="flexJA" style="display:row;justify-content: left;margin-right:20rpx;" bindtap="toChoseLocation">
+						<van-icon
+						 name="replay"
+						 bindtap="getLocation"
+						 color="#FE4648"
+						 size="15px"
+						/>
+						<text bindtap="chooseAD">重新定位</text>
+					</view>
+					</view>
+  
+
+  <view wx:if='{{list == null || list == []}}' style="text-align:center;">
+  暂无可选地址
+  </view>
+  <view wx:else>
+<view class='name one ' wx:for='{{list}}' wx:key='index' bindtap="selectAddress" data-item="{{item}}" data-index="{{index}}">
+      <view class="top flexJsAc">
+        <view class="left flex">
+          <image class="default" src="https://oss.eggxiaoer.com/web/miniprogram/default.png" wx:if="{{item.type == 1}}"></image>
+          <view class="name_phoneNum flexJsAc">
+            <text class="nameText">{{item.contactName}}</text>
+            <text class="typet">{{item.mobile}}</text>
+          </view>
+        </view>
+        <!-- <view class='right flexJA' catchtap="edit" data-id="{{item.id}}">
+          <image class="edit" src="https://oss.eggxiaoer.com/web/miniprogram/edit.png"></image>
+        </view> -->
+      </view>
+      <view class="bottom">
+          <text class="type">{{item.province}}{{item.city}}{{item.county}}{{item.address}}</text>
+
+      </view>
+
+    </view>
+  </view>
+    
+  </view>
+  <view class="add">
+    <button class="addButton" bindtap="addAdress"> + 新增地址</button>
+  </view>
+</view>
+

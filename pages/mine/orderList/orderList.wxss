@@ -1,0 +1,56 @@
+/* pages/orderList/orderList.wxss */
+page{
+  background:rgba(236,240,244,1);
+}
+.orderList .oederOne{
+  background:rgba(255,255,255,1);
+  border-radius:20rpx;
+  padding: 18rpx 35rpx;
+  margin-top: 20rpx;
+}
+.orderList .oederOne .oneTop{
+
+}
+.orderList .oederOne .oneTop .shopName{
+  color: #333333;
+  font-size: 36rpx;
+}
+.orderList .oederOne .oneTop .payTime{
+  color: #666666;
+  font-size: 30rpx;
+}
+
+.oneBottom .goodsList .itemOne{
+  width: 100%;
+  color: #333333;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.itemOneLeft{
+  max-width: 350rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.itemOneLeftRight{
+  margin-left: 15rpx;
+}
+.oneBottom .amount{
+  align-self: flex-end;
+  color: #FE4648;
+}
+.oneBottom .amount .priceType{
+    font-size: 34rpx;
+  
+}
+.oneBottom .amount .amountNumber{
+  font-size: 44rpx;
+  font-weight: 500;
+
+}
+
+.noMore{
+  width: 100%;
+  text-align: center;
+  margin: 15rpx 0;
+}

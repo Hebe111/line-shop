@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="storeInfo">
+    <text class="storeName">{{details.storeName}}</text>
+    <text class="address">{{details.storePlace}}</text>
+    <text class="time">提货时间：{{details.appointment}}</text>
+  </view>
+  <view class="line">
+    <view class="left"></view>
+    <view class="mid"></view>
+    <view class="right"></view>
+  </view>
+  <view class="QRCode">
+    <text class="label">提货码</text>
+    <text class="number">{{details.pickUpCode}}</text>
+    <!-- <image src=''></image> -->
+    <canvas class='canvas' canvas-id='canvas'></canvas>
+    <text class="tip">请向商家出示提货码</text>
+  </view>
+  <view class="line">
+    <view class="left"></view>
+    <view class="mid"></view>
+    <view class="right"></view>
+  </view>
+</view>
